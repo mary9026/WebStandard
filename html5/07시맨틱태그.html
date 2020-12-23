@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>시맨틱태그</title>
+</head>
+<body>
+<h1>시맨틱태그</h1>
+<h2>블록과 인라인 태그</h2>
+<p style="border:1px solid red">이글이 보이나요 ? </p>
+<p style="border: 1px solid green">이글도 보이나요 ? </p>
+<a href="#" style="border: 1px solid red">네이버로 이동</a>
+<a href="#" style="border: 1px solid green">다음으로 이동</a>
+<a href="#" style="border: 1px solid blue">구글로 이동</a>
+
+<h2>그룹핑 태그</h2>
+<div>
+    <h1 style="text-align: center">WWW</h1>
+    <p style="text-align: center">World Wide Web을 의미하는 약자로써 블라블라 ...</p>
+</div>
+
+<div style="text-align: center; color:orange">
+    <h1>WWW</h1>
+    <p>World Wide Web을 의미하는 약자로써 블라블라 ...</p>
+</div>
+
+<span style="background-color: yellow">
+    <img src="../img/free-icon-table-lamp-3925174.png" width="150">
+    <img src="../img/free-icon-gummy-bear-452538.png" width="150">
+</span>
+
+<h2>웹페이지 레이아웃</h2>
+<div id="header">페이지 상단영역</div>
+<div id="nav">페이지 상단메뉴</div>
+<div id="container">
+    <div id="laside">왼쪽메뉴</div>
+    <div id="main">본문영역</div>
+    <div id="raside">오른쪽광고</div>
+</div>
+<div id="footer">페이지 하단영역</div>
+
+<h2>html5 시맨틱 태그</h2> <!-- id 명은 겹치면 안됨 -->
+<header>페이지 상단영역</header>
+<nav>페이지 상단메뉴</nav>
+<div id="container2">
+    <aside>왼쪽메뉴</aside>
+    <div id="main2">본문영역</div>
+    <aside>오른쪽광고</aside>
+</div>
+    <footer>페이지 하단영역</footer>
+
+</body>
+</html>
+<!--
+HTML 태그의 유형
+HTML 의 모든 태그는 해당 요소가 브라우져에서 어떻게 보이는가를 결정하는
+display 라는 속성을 지니고 있음
+display 라는 속성 탓에 html 태그는 시각적으로 2가지 형태 중 하나로 보여짐
+
+block : 언제나 새로운 행에 배치되며 너비는 자동으로 100%임
+        p, h, hr, ul, ol, div, form 등이 대표적 block 태그임
+inline : 너비는 태그의 내용에 따라 가변으로 설정됨
+         따라서, 새로운 요소 추가 시 기존 요소 뒤에 배치될 수 있음
+         크기나 너비를 임의로 조정할 수 없음
+         strong, sub, em, marker, a, img, span 등이 대표적인 inline 태그임
+
+태그 그룹핑 태그 : div, span
+다른 HTML 요소들을 하나로 묶는데 사용하는 태그
+블록태그들을 하나로 묶을때는 div 태그를
+인라인태그를 하나로 붂을때는 span 태그를 사용함
+그룹핑 하는 이유는 여러요소에 동일한 스타일 적용하기 위해서 임
+또는 여러요소들을 화면 특정 위치에 배치하기 위해서 사용하기도 함
+
+레이아웃 layout
+특정 공간에 여러 구성요소들을 보기 좋게 효과적으로 배치하는 것을 의미
+웹사이트 외관을 결정짓는 중요한 디자인 요소
+
+이러한 레이아웃은 다양한 방법으로 구현가능
+table : 테이블 요소를 이용해서 레이아웃 지정
+        표 속에 표를 무한대로 만들어 복잡한 레이아웃을 구성
+        스파게티 코드를 양산하는 문제점 발생
+
+div : css와 결합해서 복잡한 코드 없이 세련되게 레이아웃을 구성할 수 있음
+      단, 레이아웃을 구성하는 요소들의 명칭이 통일되지 않음
+      margin, float, clear 등의 사용법을 잘 익혀야 함
+
+html5 symantec : 레이아웃 구성을 위한 별도의 태그를 제공
+        header : html 문서의 머릿글 영역 정의 (로고 + 기타)
+        nav : html 문서의 탐색링크 영역 정의 (상단내비메뉴)
+        aside : html 문서의 본문이외의 짜투리 영역 정의 (메뉴, 광고)
+        section : html 문서의 본문 영역 중 세부영역 정의 (기사, 게시판)
+        article : 본문영역 또는 세부영역 내 컨텐츠를 위한 영역 정의
+        footer : html 문서의 꼬리글 영역 정의 (저작권, 주소, 관리자 이메일)
+
+-->

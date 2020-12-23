@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>목록태그</title>
+</head>
+<body>
+<h1>목록태그</h1>
+<h2>순서없는 목록</h2>
+<h4>내가 좋아하는 음식 Best5 </h4>
+<ul>
+    <li>비빔면</li>
+    <li>삼겹살</li>
+    <li>탕수육</li>
+    <li>민트초코</li>
+    <li>치킨</li>
+</ul>
+
+<ul type="square">
+    <li>비빔면</li>
+    <li>삼겹살</li>
+    <li>탕수육</li>
+    <li>민트초코</li>
+    <li>치킨</li>
+</ul>
+
+<ul type="circle">
+    <li>비빔면</li>
+    <li>삼겹살</li>
+    <li>탕수육</li>
+    <li>민트초코</li>
+    <li>치킨</li>
+</ul>
+
+<ul>
+    <li>분식</li>
+        <ul>
+            <li>라면</li>
+                <ul>
+                    <li>떡라면</li>
+                    <li>치즈라면</li>
+                </ul>
+            <li>김밥</li>
+            <li>떡볶이</li>
+        </ul>
+    <li>삼겹살</li>
+    <li>탕수육</li>
+    <li>민트초코</li>
+    <li>치킨</li>
+</ul>
+
+<hr>
+<h2>순서있는 목록</h2>
+<h4>내가 좋아하는 음식 Best5 </h4>
+<ol>
+    <li>비빔면</li>
+    <li>삼겹살</li>
+    <li>탕수육</li>
+    <li>민트초코</li>
+    <li>치킨</li>
+</ol>
+
+<ol tyle="A">
+    <li>비빔면</li>
+    <li>삼겹살</li>
+    <li>탕수육</li>
+    <li>민트초코</li>
+    <li>치킨</li>
+</ol>
+
+<ol type="I">
+    <li>비빔면</li>
+    <li>삼겹살</li>
+    <li>탕수육</li>
+    <li>민트초코</li>
+    <li>치킨</li>
+</ol>
+
+<ol>
+    <li>분식</li>
+    <ol type="a">
+        <li>라면</li>
+        <ol type="i">
+            <li>떡라면</li>
+            <li>치즈라면</li>
+        </ol>
+        <li>김밥</li>
+        <li>떡볶이</li>
+    </ol>
+    <li>삼겹살</li>
+    <li>탕수육</li>
+    <li>민트초코</li>
+    <li>치킨</li>
+</ol>
+<hr>
+<h2>정의 목록</h2>
+<dl>
+    <dt>WWW</dt>
+    <dd>WWW는 World Wide Web의 약자로 블라블라...</dd>
+
+    <dt>HTML</dt>
+    <dd>HTML은 HyperText Markup Language의 약자로 블라블라...</dd>
+
+    <dt>CSS</dt>
+    <dd>CSS는 Cascade Style Sheet의 약자로 블라블라...</dd>
+</dl>
+
+</body>
+</html>
+<!--
+목록 list
+여러 요소들을 일렬로 나열한 목록이나 명단을 의미
+HTML 에서는 ul, ol, dl 이라는 태그로 표현 가능
+
+순서없는 목록 (unordered list)
+순서없는 목록은 ul 태그로 시작하고 li 태그로 목록의 요소를 표현함
+목록의 요소 앞에는 marker 라고 하는 특수한 기호가 같이 출력됨
+marker 유형은 disc, square, circle 등이 있고
+CSS를 사용하면 이미지를 marker로 사용할 수도 있음음
+
+순서있는 목록 (ordered list)
+순서있는 목록은 ol 태그로 시작하고 li 태그로 목록의 요소를 표현함
+목록의 요소 앞에는 marker라고 하는 특수한 기호가 같이 출력됨
+marker 유형은 숫자, 로마자, 알파벳 등이 있음
+
+순서있는 목록 / 순서없는 목록 섞어서 사용도 할 수 있다고 함
+
+정의 목록 (definition list)
+용어와 그 용어의 뜻을 나열할때 사용함
+정의목록은 dl 태그로, 용어는 dt 태그로 용어뜻은 dd 태그를 사용함
+
+->

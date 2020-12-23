@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>테이블태그</title>
+</head>
+<body>
+<h1>테이블태그</h1>
+<h2>학생테이블</h2>
+<table border="1" width="550" cellspacing="0" cellpadding="5">
+    <tr><th>학번</th><th>이름</th><th>주소</th>
+        <th>생년월일</th><th>학과명</th><th>교수</th></tr>
+
+    <tr><td>201350050</td><td>김태희</td><td>경기도 고양시</td>
+        <td>1985.03.22</td><td>컴퓨터</td><td>504</td></tr>
+
+    <tr><td>201350050</td><td>김태희</td><td>경기도 고양시</td>
+        <td>1985.03.22</td><td>컴퓨터</td><td>504</td></tr>
+
+    <tr><td>201350050</td><td>김태희</td><td>경기도 고양시</td>
+        <td>1985.03.22</td><td>컴퓨터</td><td>504</td></tr>
+</table>
+<hr>
+<h2>고급 테이블 작성</h2>
+<table border="1" width="550" cellspacing="0" cellpadding="5">
+    <caption>학생테이블</caption>
+    <thead>
+    <tr><th>학번</th><th>이름</th><th>주소</th>
+        <th>생년월일</th><th>학과명</th><th>교수</th></tr>
+    </thead>
+
+    <tbody>
+    <tr><td>201350050</td><td>김태희</td><td>경기도 고양시</td>
+        <td>1985.03.22</td><td>컴퓨터</td><td>504</td></tr>
+    <tr><td>201350050</td><td>김태희</td><td>경기도 고양시</td>
+        <td>1985.03.22</td><td>컴퓨터</td><td>504</td></tr>
+    <tr><td>201350050</td><td>김태희</td><td>경기도 고양시</td>
+        <td>1985.03.22</td><td>컴퓨터</td><td>504</td></tr>
+    </tbody>
+    <tfoot></tfoot>
+</table>
+<hr>
+<h2>복잡한 테이블 작성 : colspan, rowspan</h2>
+<table border="1" cellpadding="10" width="350">
+    <tr><td colspan="2">1<!--</td><td>2</td>--></tr>
+    <tr><td>3</td><td>4</td></tr>
+
+</table>
+<br>
+<table border="1" cellpadding="10" width="350">
+    <tr><td>1</td> <td rowspan="2">2</td></tr>
+    <tr><td>3</td> <!--<td>4</td>--></tr>
+
+</table>
+<br>
+<table border="1" cellspacing="0" cellpadding="10" width="550">
+    <tr><td colspan="5">1</td><!--<td></td><td></td><td></td><td></td>--></tr>
+    <tr><td colspan="5">2</td><!--<td></td><td></td><td></td><td></td>--></tr>
+    <tr><td rowspan="3">3</td><td rowspan="3">4</td><td>5</td><td>6</td><td>7</td></tr>
+    <tr><!--<td></td><td></td>--><td colspan="2">8</td><!--<td></td>--><td>9</td></tr>
+    <tr><!--<td></td><td></td>--><td colspan="3">10</td><!--td></td><td></td>--></tr>
+</table>
+
+</body>
+</html>
+<!--
+테이블
+여러종류의 데이터를 보기좋게 정리해서 표 형태로 나타낸 것
+table 태그를 이용해서 표를 표현할 수 있고
+행과 열을 나타내기 위해 th, tr, td 등의 태그를 사용해야 함
+
+tr : table row, 테이블의 행을 표현할때 사용
+th : table header, 테이블의 제목셀을 표현할때 사용
+     자동으로 가운데정렬, 텍스트가 진하게 표시
+td : table data, 테이블의 일반셀을 표현할때 사용
+
+border : 테이블 테두리를 표시, 숫자는 굵기를 의미
+cellspacing : 테이블의 셀들간의 간격을 조정
+cellpadding : 셀안의 텍스트와 셀 테두리간의 여백 조정
+
+테이블의 각부분에 의미부여
+thead : 테이블의 제목행 영역을 정의
+tbody : 테이블의 본문행 영역을 정의
+tfoot : 테이블의 꼬리행 영역을 정의
+caption : 테이블의 제목을 표현하고 싶을때 사용
+
+테이블 셀 합치기
+colspan : 가로로 이웃한 셀(열column 끼리)을 합칠때 사용
+rowspan : 세로로 이웃한 셀(행row 끼리)을 합칠때 사용
+
+
+-->

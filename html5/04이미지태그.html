@@ -6,14 +6,31 @@
 </head>
 <body>
 <h2>이미지</h2>
-<p><img src="https://t1.daumcdn.net/daumtop_chanel/op/20201222020141720.png"></p>
-<p><img src="https://www.google.com/logos/doodles/2020/december-holidays-days-2-30-6753651837108830.3-law.gif"></p>
-<p><img src="../img/free-icon-table-lamp-3925174.png"></p>
+<p><img src="https://t1.daumcdn.net/daumtop_chanel/op/20201222020141720.png" loading="lazy"></p>
+<p><img src="https://www.google.com/logos/doodles/2020/december-holidays-days-2-30-6753651837108830.3-law.gif" loading="lazy"></p>
+<p><img src="../img/free-icon-table-lamp-3925174.png" loading="lazy"></p>
 <hr>
+<h2>이미지 크기설정 & 링크설정 : width, height</h2>
 <p><a href="http://daum.net">
-    <img src="https://t1.daumcdn.net/daumtop_chanel/op/20201222020141720.png" width="180" height="90"></a></p>
+    <img src="https://t1.daumcdn.net/daumtop_chanel/op/20201222020141720.png" width="180" height="90" loading="lazy"></a></p>
 <p><a href="http://google.co.kr">
-    <img src="https://www.google.com/logos/doodles/2020/december-holidays-days-2-30-6753651837108830.3-law.gif" width="250" height="90"></a></p>
+    <img src="https://www.google.com/logos/doodles/2020/december-holidays-days-2-30-6753651837108830.3-law.gif" width="250" height="90" loading="lazy"></a></p>
+<hr>
+<h2>이미지 보조설명</h2>
+<img src="../img" alt="스탠드스탬프">
+
+<hr>
+<h2>이미지 제목 : figcaption </h2>
+<figure>
+    <img src="../img/free-icon-table-lamp-3925174.png">
+    <figcaption>그림 1-1. 스탠드 스탬프</figcaption>
+</figure>
+
+<figure>
+    <figcaption>그림 1-2. 스탠드 스탬프</figcaption>
+    <img src="../img/free-icon-table-lamp-3925174.png">
+</figure>
+
 
 </body>
 </html>
@@ -26,5 +43,36 @@ src : 문서에 나타낼 이미지의 경로를 설정
       크기를 재조정하고 싶으면 width, height를 설정하면 됨
 
 링크태그에 텍스트레이블 대신 이미지를 지정할 수도 있음
+
+웹에서 사용가능한 이미지들
+gif : graphic interchange format,
+      1987년 미국 통신업체인 컴서브에서 개발
+      최대 256색 표현가능, 비손실 압축 지원
+      투명이미지, 애니메이션 지원, 저작권/특허가 등록되어 있음 (2006년 만료)
+
+jpg : joint picture experts group
+      이미지 압축기술자 모임인 JPEG에서 개발
+      RGB/CMYK 모드 지원(표현가능색상수 백만가지 이상)
+      이미지 압축수준을 조정할 수 있음 <-> 이미지의 질이 낮아질 수 있음
+
+png : portable network graphics
+      GIF의 특허에 대항해서 개발된 포맷
+      JPG, GIF의 장점을 합친 파일 포맷
+      대신 JPG, GIF 보다 이미지 용량이 상대적으로 큼
+      단, 애니메이션은 만들 수 없음
+
+이미지 설명 : alternative
+이미지를 불러오지 못하는 경우 이미지를 대신해서 출력하고픈 내용을
+alt 속성으로 정의함
+
+이미지 로딩시점 지정 : loading
+이미지를 불러오는 방식을 지정하려면 loading 이라는 속성 사용
+eager : 페이지의 모든 이미지를 불러옴
+lazy : 페이지가 브라우져의 가시영역viewport에 들어오면 그때서야 이미지를 불러옴
+       불필요한 이미지 로딩을 줄여서 데이터 소모를 방지할 수 있음
+
+이미지 제목 추가 : figure, figcaption
+이미지에 제목을 부여하고 싶다면 figure 태그로 이미지를 둘러싼 후
+figcaption 태그로 제목을 작성할 수 있음 (figure 쓰면 그림과이미지 살짝 들여쓰기 됨)
 
 -->
