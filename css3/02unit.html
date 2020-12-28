@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS 단위</title>
+    <link href="normalize.css">
+    <style>
+        body {text-align: center; font-size:14px;}
+        #unitest1 {font-size:14px;}
+        #unitest2 {font-size:100%;}
+                /* font의 기본 사이즈는 16px */
+                /* 상속받은 font 사이즈는 14px */
+        #unitest3 {font-size:120%;}
+                /* 14 x 120% = 16.~ */
+        #unitest4 {font-size:1em;}
+        #unitest5 {font-size:1.2em;}
+
+        #box1, #box2, #box3 {width: 300px; height:150px;}
+        #box1 {background: rgb(255,0,0)}
+        #box2 {background: rgba(255,0,0,0.5)}
+        #box3 {background: #FF0000;}
+    </style>
+</head>
+<body>
+<h1>CSS 단위</h1>
+<h2>크기 비교</h2>
+<div id="unitest1">어떻게 보이나요 ? </div>
+<hr>
+<div id="unitest2">어떻게 보이나요 ? </div>
+<div id="unitest3">어떻게 보이나요 ? </div>
+<hr>
+<div id="unitest4">어떻게 보이나요 ? </div>
+<div id="unitest5">어떻게 보이나요 ? </div>
+<hr>
+<div id="box1"></div>
+<div id="box2"></div>
+<div id="box3"></div>
+</body>
+</html>
+<!--
+크기 단위
+CSS 에서 사용하는 크기의 단위는 %, em, px 등이 있음
+% (백분율 단위 - 기본적으로 정해진 크기를 100으로 놓고 그에 대한 상대적 크기
+                요소에 기본적으로 지정된 사이즈나 상속된 사이즈 기준)
+px (픽셀 단위 - 스크린의 픽셀을 기준으로 정해진 절대적 크기
+    해상도에 따라 상대적인 크기를 가짐 - 비추 !!
+    특정 요소의 크기가 x라 해도 해상도에 따라 크기가 다르게 보임)
+em (해당 폰트의 기본크기를 1로 놓고 그에 대한 상대적 크기)
+-->
+<!--
+색상표현하기
+색상이름 - red, green, blue,...
+          대부분의 브라우져는 216가지 색상을 지원함
+
+RGB 색상 -  rgb(빨강, 녹색, 파랑), rgba(빨강, 녹색, 파랑, 투명도)
+            각 색상의 범위는 0~255까지로 정의
+
+16진수 - #빨강녹색파랑
+        각 색상의 범위는 0~FF 로 정의
+
+html web safe color 검색하면 색상차트를 볼 수 있음
+-->

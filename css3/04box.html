@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>박스속성</title>
+    <style>
+        #box1 {width: 300px; background: yellow; padding: 25px; border: 5px solid navy; margin:25px;}
+        #box2 {width: 300px; background: yellow; padding: 25px; border: 5px solid navy; margin:25px; height: 100px; overflow: hidden}
+        #box3 {width: 300px; border:5px solid navy;
+               padding: 25px; /* 4개의 방향을 단일값으로 선언 */
+               padding: 25px 25px; /* 2개의 방향(상하/좌우)을 2개값으로 선언 */
+               padding: 25px 25px 25px; /* 3개의 방향(상/좌우/하)을 3개값으로 선언 */
+               padding: 5px 20px 45px 65px; /* 4개의 방향(상/우/하/좌)을 4개값으로 선언 */
+
+                padding-top: 5px;
+                padding-right: 20px;
+                padding-bottom: 45px;
+                padding-left: 65px; /* 세부적으로 4방향 속성으로 선언 */
+        }
+        #box4 {width: 300px; margin: 10px auto;}
+
+        #box5 {width: 300px; border: 5px dotted red; /* 단축식 */
+
+            border-top-style: dotted;
+            border-right-style: dashed;
+            border-bottom-style: double;
+            border-left-style: solid;
+            board-style: dotted dashed double solid;
+
+            border-top-color: yellow;
+            border-right-color: purple;
+            border-bottom-color: navy;
+            border-left-color: lime;
+            board-colot: yellow green navy lime;
+
+        }
+
+    </style>
+</head>
+<body>
+<h1>박스속성</h1>
+<div id="box1">
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+</div>
+<div id="box2">
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+</div>
+<div id="box3">
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+</div>
+<div id="box4">
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+</div>
+
+<div id="box5">
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+</div>
+
+</body>
+</html>
+<!--
+CSS 박스 모델
+모든 HTML 요소는 박스 형태의 영역을 지니고 있음
+이러한 박스는 기본적으로 내용 content, 안쪽여백 padding, 바깥여백 margin, 테두리 border 등으로 구성
+
+브라우저는 박스의 기본크기와 속성, 위치를 기반으로 화면에 자리잡음
+-->
+<!--
+width/height 속성
+요소의 너비와 높이를 지정할 때 사용
+단, 컨텐츠 영역보다 컨텐츠가 크면 영역을 넘쳐서 표시됨
+사용가능 단위는 px, %
+-->
+<!--
+margin(바깥)/padding(안쪽) 속성
+컨텐츠를 둘러싸고 있는 4개 방향(top/right/bottom/left)에 대해 지정가능
+margin, padding 은 1개값, 2개값, 3개값, 4개값을 이용해서 지정할 수 있음
+한편, -top, -right, -bottom, -left 속성을 이용해서
+세부적으로 margin 이나 padding 을 조절할 수 있음
+-->
+
+<!--
+자동 수평정렬
+margin 의 left/right 속성을 auto 라고 선언하면
+해당요소를 브라우저 중앙에 배치할 수 있음음
+-->
+<!--
+테두리
+border-style, border-color, border-width 등의 속성을 가짐
+padding/margin 과 마찬가지로 단축 표기식으로 선언할 수 있음
+'border: 선두께 선종류 선색깔' 형태로 정의해야 함
+
+border-style : dotted, dashed, solid, double, groove, ridge, inset, outset, ...
+border-width : thin, thick, medium, 수치값, ...
+-->

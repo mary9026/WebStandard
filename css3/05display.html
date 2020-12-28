@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>display속성</title>
+    <style>
+        div:nth-of-type(1) {background: khaki; padding: 20px;}
+        div:nth-of-type(2) {background: lime; width: 300px; padding: 20px;}
+        span {background: limegreen;  padding: 10px; width: 100px; height: 100px; /* 크기 적용 불가 */ margin:100px; /* 상하 마진 적용불가! */}
+
+        #inlineblock {background: orange; margin: 100px; width: 200px; height: 200px; display: inline-block}
+
+        #box1 {width:300px; height:300px; background: orange; visibility: hidden}
+        #box2 {width:300px; height:300px; background: orange; display: none}
+
+        #box4 {width:250px; height:250px; background: orange; opacity: 0.55}
+        #box4:hover{opacity: 1}
+        img {opacity: 0.55}
+        img:hover{opacity: 1}
+    </style>
+</head>
+<body>
+<h1>display속성</h1>
+
+<div>
+    <p>블록레벨 요소1</p>
+</div>
+<div>
+    <p>블록레벨 요소2</p>
+</div>
+<hr>
+<div>
+    <p>시간은 <span>금이라구</span>, 친구!</p>
+    <span>디지몬 친구들</span>
+    <span>렛츠고 렛츠고</span>
+    <span>Hello, World !!</span>
+</div>
+<div>
+    <span id="inlineblock">시간은 금이라구, 친구!</span>
+</div>
+<hr>
+<div id="box1">box1</div>
+<div id="box2">box2</div>
+<div id="box3">box3</div>
+<hr>
+<div id="box4"></div>
+<img src="../img/free-icon-gummy-bear-452538.png" width="250">
+</body>
+</html>
+<!--
+display
+display 속성은 레이아웃 정의에 자주 사용되는 중요한 속성임
+
+block : 대상요소를 block 처럼 보이게 함
+        요소가 너비가 내용에 상관없이 100% 이므로
+        항상 새로운 라인에 배치
+        크기, 여백, 마진 지정 가능
+        div, h, p, ol/ul/li, hr, table, form
+
+inline :  대상요소를 inline 처럼 보이게 함
+          요소의 너비는 컨텐츠의 크기에 따라 결정
+          따라서, 새로운 라인에 배치되지 않고
+          라인 중간에 배치될 수도 있음
+          크기, 마진(좌우만 허용) 지정 불가능
+          span, a, img, input, selet, textarea, button
+
+inline-block : 대상요소를 inline과 block 처럼 보이게 함
+               새로운 라인에 배치되지 않지만 크기, 여백, 마진 지정 가능
+-->
+<!--
+가시성
+visibility 속성은 대상요소를 보이게 할 것인지 말것인지를 정의
+
+visivle : 요소를 보이게 함
+hidden : 요소를 보이지 않게 함
+-->

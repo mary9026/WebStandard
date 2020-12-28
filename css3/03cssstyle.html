@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS 연동방법</title>
+    <link rel="stylesheet" href="03cssstyle.css">
+    <style>
+        p {color:orange;}
+        div {color:green;}
+    </style>
+</head>
+<body>
+<h1>CSS 연동방법</h1>
+<p style="color:hotpink">피카츄라이츄파이리꼬부기버터플야도란피존투또가스 서로 생긴 모습은 달라도 우리는 모두친구 맞아맞아</p>
+<div style="color:navy">피카츄라이츄파이리꼬부기버터플야도란피존투또가스 서로 생긴 모습은 달라도 우리는 모두친구 맞아맞아</div>
+</body>
+</html>
+<!--
+HTML 과 CSS 연동하기
+HTML은 CSS를 포함하려면, 외부 스타일 방식, 내부 스타일 방식, 인라인 스타일 방식 중 하나를 이용할 수 있음
+
+외부 스타일 방식 (추천 !)
+<link rel="stylesheet" href="CSS파일경로">
+스타일시트 파일을 다운로드해서 적용하기 때문에
+빈번한 네트워크 사용량을 줄여 데이터소모를 방지
+
+내부 스타일 방식
+head 태그에 style 태그를 정의하고 css 선언
+html 내부에 css를 포함하는 방법
+보통 테스트용/학습용으로 CSS를 작성한 후
+나중에 외부 스타일 방식으로 바꿈
+
+인라인 스타일 방식 (비추)
+html 각 요소에 style 이라는 속성을 이용해서 CSS 적용하는 방식
+
+CSS 적용 우선순위
+인라인 스타일 > 내부 스타일 > 외부 스타일
+단, 우선순위를 강제로 바꾸고 싶다면 !important 이용하면 됨
+
+-->

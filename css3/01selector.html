@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS 선택자</title>
+    <link rel="stylesheet" href="normalize.css">
+    <style>
+        h2 {color:pink;}
+        h4 {color:mediumpurple;}
+        p {background: yellow}
+        div {background: lightblue}
+        #strong {color:white;}
+        .em {font-family: 궁서체;}
+
+        /* h4 {font-style:italic}
+        p {font-style:italic}*/
+        h4, p {font-style: italic}
+
+        div p {background: mintcream}
+        div ul {background: lightgoldenrodyellow}
+        div ul li {background: darksalmon}
+
+        a:link {text-decoration: none;color: black}
+        a:visited {color:black;}
+        a:active {color:green;}
+        a:hover {color:red; text-decoration: underline;}
+
+        input:hover {background: orange; border: 1px solid red}
+
+        #food ul li:first-child {background: red;}
+        #food ul li:last-child {background: blue;}
+        #food ul li:nth-child(3) {background: orange;}
+
+    </style>
+</head>
+<body>
+<h1>CSS 선택자</h1>
+<h2>포켓몬스터 친구들</h2>
+<h4 class="em">Go Big or Go Extinct</h4>
+<p class="em">피카츄라이츄파이리꼬부기버터플야도란피존투또가스 서로 생긴 모습은 달라도 우리는 모두친구 맞아맞아</p>
+<div id="strong">피카츄라이츄파이리꼬부기버터플야도란피존투또가스 서로 생긴 모습은 달라도 우리는 모두친구 맞아맞아</div>
+
+<div>
+    <p>내가 좋아하는 분식</p>
+    <ul>
+        <li>탕수육</li>
+        <li>떡볶이</li>
+        <li>순대</li>
+    </ul>
+</div>
+
+<p>
+    <a href="#">네이버로 이동</a>
+    <a href="#">다음으로 이동</a>
+    <a href="#">구글로 이동</a>
+</p>
+
+<p><label>아이디</label> <input type="text"</p>
+<p><label>비밀번호</label> <input type="password"</p>
+
+<div id="food">
+    <ul>
+        <li>제육볶음</li>
+        <li>족발 및 수육</li>
+        <li>양념치킨</li>
+        <li>떡볶이</li>
+    </ul>
+</div>
+</body>
+</html>
+<!--
+CSS Cascade Style Sheets
+HTML 요소들이 각종 미디어(pc, 태블릿, 핸드폰)에서 어떻게 보일것인지를 정의
+HTML4 부터는 모든 서식 설정을 분리해서 따로 작성가능하게 됨
+=> 웹 페이지의 스타일과 내용(HTML)을 분리시켜 스타일 설정/관리를 위해 작성하는 서식을 의미
+-->
+<!--
+CSS 초기화 reset
+각 브라우저마다 설정되어있는 기본 스타일이 제각각
+이러한 점을 개선하기 위해 CSS를 정의하기 전에 브라우저 기본 스타일(여백, 간격)을 모두 초기화함
+
+eric meyer RESET CSS 2.0 (meyerweb.com/eric/tools/css) - 고급기능 / 손이 많이감
+Normalize CSS (necolas.github.io/normalize.css) - 초보자가 쓰기 편리 / 손이 덜감
+HTML Doctor CSS Reset
+Yahoo! Reset CSS
+-->
+<!--
+선택자 selector
+CSS를 적용할 요소를 가리키는 방법을 규정
+요소/아이디/클래스/그룹/반응, 링크, 상태/구조 선택자
+-->
+<!--
+요소 선택자 : 지정한 태그에 대해 일괄적으로 스타일 적용
+아이디 선택자 : 특정 태그에 대해서만 스타일 적용
+               태그에 id 속성을 이용해서 이름을 선언하고
+               스타일 적용 시 선택자 이름을 #으로 시작함
+클래스 선택자 : 서로 다른 여러 태그들을 대상으로 일괄적으로 스타일 적용
+               태그에 class 속성을 이용해서 이름을 선언하고
+               스타일 적용 시 선택자 이름을 .으로 시작함
+그룹 선택자 : 서로 다른 여러 태그들을 대상으로 일괄적으로 스타일 적용
+             각 요소들을 ,를 이용해서 스타일을 적용할 대상을 선언함
+             경우에 따라 클래스 선택자보다 편리하게 사용할 수 있음
+자손 선택자 : 특정 요소의 하위 요소들을 대상으로 일괄적으로 스타일 적용
+             상위요소와 하위요소들을 공백으로 구분지어 선언
+             상위요소는 요소/아이디/클래스 선택자 중 하나가 될 수 있음
+-->
+<!--
+의사 pseudo 클래스 선택자 :
+해당 요소에는 실제로 존재하지 않지만 클래스가 선언된 것처럼 간주해서 만든 선택자
+선언방법은 '태그명:의사클래스명' 형태이고, 상태, 반응, 링크 선택자 등에 지원됨
+a 태그에 대한 의사클래스 선택자 => :link, :visited
+반응 의사클래스 선택자 => :hover, :active, :focus
+-->
+
+<!--
+구조 의사 클래스 선택자
+HTML 요소의 계층구조를 기준으로 특정 위치에 있는 요소를
+선택하고 싶을때 사용
+선언방법은 '태그명:구조의사클래스명' 형태임
+-->
