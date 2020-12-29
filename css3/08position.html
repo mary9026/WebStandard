@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>position속성</title>
+    <style>
+        .box {width: 200px; height: 200px;}
+        .static {background: beige; position: static}
+
+        .relative {background: khaki; position: relative; top: 50px; left: 100px;}
+
+        .base {background: lightcoral; margin-top: 100px;}
+        .relative2 {background: mediumpurple; top: 50px; left: 100px; position: relative;}
+
+        .absolute {background: palegreen; color: white; position: absolute; top: 100px; right: 100px;}
+
+        .base2 {position: relative; top: 500px; left: 500px; background: chocolate;}
+        .absolute2 {background: rebeccapurple; color: white; position: absolute; top: 300px; right: 100px;}
+
+        .box2 {background: yellow; width: 100px; height: 100px;}
+        .fixed {position:fixed; top: 50px; right: 50px;}
+
+        .normal {background: yellow; width: 150px; height: 150px; z-index:30;}
+        .absolutebox {width: 150px; height: 150px; position: relative;}
+        .red {background: red; top:-50px; right: -50px; z-index: 50;}
+        .green {background: green; top: -100px; right: -100px; z-index: 40;}
+        .blue {background: blue; top: -150px; right: -150px; z-index: 20;}
+
+        .box3 {width: 150px; height: 100px; border: 1px solid red;}
+        .overflow { /* overflow: auto; */
+                    overflow-x: hidden; overflow-y: scroll;}
+
+        .overflow2 {overflow: scroll;}
+    </style>
+</head>
+<body>
+<h1>position속성</h1>
+<div class="box static">static</div>
+<div class="box relative">static</div>
+
+<div class="box base">
+    <div class="box relative2">relative2</div>
+</div>
+
+<div class="box absolute">absolute</div>
+
+<div class="box base2">
+    <div class="box absolute2">absolute2</div>
+</div>
+
+<div class="box2 fixed">장바구니</div>
+<hr>
+
+<div class="normal">box1</div>
+<div class="red absolutebox">box2</div>
+<div class="green absolutebox">box3</div>
+<div class="blue absolutebox">box4</div>
+
+<hr>
+<div class="box3 overflow">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</div>
+
+<div class="box3 overflow2">
+    <img src="../img/free-icon-llama-3930415.png">
+</div>
+
+</body>
+</html>
+<!--
+position
+대상요소의 위치를 정의함
+(top, bottom, left, right 속성과 함께 사용)
+
+static : 기본 배치 방식
+         위에서 아래로(블록요소)
+         왼쪽에서 오른쪽으로 배치 (인라인요소)
+
+relative : 상대좌표 배치방식
+           static 으로 선언된 요소를 기준으로 좌표속성을 이용해서 배치
+
+absolute : 절대좌표 배치
+           브라우져 가시영역(document body) 좌상단을 기준으로 좌표속성을 이용해서 배치
+
+fixed : 고정좌표 배치방식
+        브라우져 가시영역 (document body)를 기준으로 배치되어
+        스크롤을 하더라도 언제나 그 위치에 고정배치
+-->
+<!--
+z-index
+z-index 는 화면 전면에 출력되는 순서를 지정할 수 있음
+z-index 에 큰 값을 지정할수록 다른 요소들 보다 위에 배치됨
+-->
+<!--
+overflow
+대상요소의 영역을 벗어나는 요소에 대한 처리
+필요에 따라 스크롤바를 표시하면 영역을 벗어나는 요소 모두 출력 가능
+hidden, visible, scroll, auto
+스크롤바를 세세하게 설정할 필요가 있는 경우 overflow-x, overflow-y 를 사용해도 됨
+-->

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>float속성</title>
+    <style>
+        .box {width: 100px; height: 100px; padding: 10px; font-size: 3em; color: white;}
+        .d1 {background: indianred; float: left;}
+        .d2 {background: coral; float: left;}
+        .d3 {background: indianred; float: right;}
+        .d4 {background: coral; float: right;}
+        .container {width: 960px; border:1px solid blue; margin: 0 auto;}
+
+        #header {width: 960px; height: 125px; background: mediumpurple}
+        #footer {width: 960px; height: 100px; background: coral}
+        #container {width: 960px; height: 500px; overflow: hidden}
+        #aside { width: 180px; height: 500px; background: cornflowerblue; float: left;}
+        #main {width: 780px; height: 500px; background: lightpink; float: right;}
+
+    </style>
+</head>
+<body>
+<h1>float속성</h1>
+<div class="container">
+    <div class="box d1">1</div>
+    <div class="box d2">2</div>
+    <div class="box d3">3</div>
+    <div class="box d4">4</div>
+</div>
+
+<hr style="clear: both; margin:100px 0">
+<div id="header">header</div>
+<div id="container">
+    <div id="aside">aside</div>
+    <div id="main">main</div>
+</div>
+<div id="footer">footer</div>
+
+</body>
+</html>
+<!--
+float 속성
+웹 페이지 레이아웃 구성 시 블록요소를 좌우로 배치하고 싶을때 사용하는 속성
+물론, flexbox 레이아웃을 더 많이 사용하기도 하지만
+flexbox 모델을 지원하지 않는 브라우져를 위해 여전히 사용되기도 함
+단, 설정된 float 속성을 해제하려면 clear 속성을 지정해야 함
+-->
+<!--
+clear 속성
+설정된 float 속성을 해제할때 사용
+left, right, both 등의 값으로 설정할 수 있음
+-->
