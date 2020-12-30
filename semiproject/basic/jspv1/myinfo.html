@@ -3,6 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>JSPv1</title>
+    <link rel="stylesheet" href="/css3/normalize.css">
+     <style>
+        body {margin:0; padding: 0}
+        .container { width: 1150px; margin:0 auto; }
+        
+        nav ul {list-style: none; padding-bottom: 15px;/* = padding: 0 0 15px 0 으로도 쓸 수 있음 */}
+        nav ul li {float:left; padding-left: 150px;}
+        nav hr {clear:both; height: 1px;background: black;}
+    
+        #main { height: 500px; }
+        
+        footer hr {height: 1px;background: black;}
+        footer p { text-align: center;  }
+        
+        /* 링크에 대한 스타일 정의 */
+        /* 기본링크 : 검정, 밑줄제거 */
+        /* 링크 hover : 빨강, 밑줄표시 */
+        a {font-weight: bold; }
+        a:link {color: black; text-decoration: none;}
+        a:visited {color: black; text-decoration: none;}
+        a:active {color: black; text-decoration: none;}
+        a:hover {color: red; text-decoration: underline;}
+        
+    </style>
+    
+        <style>
+        table { margin: 0 auto; border-collapse: collapse; table-layout: fixed; margin-bottom: 100px; }
+            th { text-align: right; padding: 10px;}
+        </style>
 </head>
 <body>
 <header>
@@ -10,16 +39,16 @@
 </header>
 <nav>
     <ul>
-        <li>Home</li>
-        <li>회원가입</li>
-        <li>로그인</li>
-        <li>게시판</li>
-        <li>회원정보</li>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="join.html">회원가입</a></li>
+        <li><a href="login.html">로그인</a></li>
+        <li><a href="board/list.html">게시판</a></li>
+        <li><a href="myinfo.html">회원정보</a></li>
     </ul>
 <hr>
 </nav>
 
-<div id="container">
+<div id="main">
     <section>
         <h3>회원정보</h3>
         <table>
