@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>JSPv1</title>
     <link rel="stylesheet" href="/css3/normalize.css">
+    <link rel="stylesheet" href="base.css">
+    
      <style>
         body {margin:0; padding: 0}
         .container { width: 1150px; margin:0 auto; }
@@ -36,6 +38,11 @@
         .newbtn { text-align: right; border: none;}
         .bdgnb { border: none; }
         .cpage { font-weight: bold; color: red; font-size: 50px}
+        tbody a { font-weight: normal;}
+        
+        tbody a:link, tbody a:visited { color:blue; }
+        tbody a:hover { color:orange; }
+        tbody a:active { color:crimson; }
     </style>
 </head>
 <body>
@@ -65,12 +72,12 @@
             </colgroup>
         
         <thead>
-            <tr><td colspan="5" class="newbtn"> <button type="button">글쓰기</button></td></tr>
+            <tr><td colspan="5" class="newbtn"> <button type="button" onclick="location.href='write.html'">글쓰기</button></td></tr>
         <tr><th>번호</th><th>제목</th><th>작성자</th><th>작성일</th><th>조회</th></tr>
         </thead>
 
         <tbody>
-        <tr><td>1</td><td>시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구! 사실이라구, 친구! 참말이라구, 친구!</td><td>siestageek</td><td>2014-05-05</td><td>777</td>
+        <tr><td>1</td><td><a href="view.html">시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구! 사실이라구, 친구! 참말이라구, 친구!</a></td><td>siestageek</td><td>2014-05-05</td><td>777</td>
         <tr><td>2</td><td>시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구! 사실이라구, 친구! 참말이라구, 친구!</td><td>siestageek</td><td>2014-05-05</td><td>777</td>
         <tr><td>3</td><td>시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구! 사실이라구, 친구! 참말이라구, 친구!</td><td>siestageek</td><td>2014-05-05</td><td>777</td>
         <tr><td>4</td><td>시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구! 사실이라구, 친구! 참말이라구, 친구!</td><td>siestageek</td><td>2014-05-05</td><td>777</td>

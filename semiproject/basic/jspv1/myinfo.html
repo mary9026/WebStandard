@@ -15,7 +15,7 @@
         #main { height: 500px; }
         
         footer hr {height: 1px;background: black;}
-        footer p { text-align: center;  }
+        footer p { text-align: center;}
         
         /* 링크에 대한 스타일 정의 */
         /* 기본링크 : 검정, 밑줄제거 */
@@ -29,8 +29,9 @@
     </style>
     
         <style>
-        table { margin: 0 auto; border-collapse: collapse; table-layout: fixed; margin-bottom: 100px; }
-            th { text-align: right; padding: 10px;}
+        table { width: 25%; margin: 100px auto; border-collapse: collapse; table-layout: fixed;}
+            th, td {padding: 10px}
+            th { text-align: right;}
         </style>
 </head>
 <body>
@@ -52,6 +53,10 @@
     <section>
         <h3>회원정보</h3>
         <table>
+            <colgroup>
+                <col style="width: 35%">
+                <col>
+            </colgroup>
             <tbody>
                 <tr><th>아이디</th><td>marymary</td></tr>
                 <tr><th>이름</th><td>발라용</td></tr>

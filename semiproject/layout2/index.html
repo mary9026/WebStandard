@@ -3,96 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <title>레이아웃2</title>
+    <style>
+        body { margin:0; padding: 0}
+        .container {width: 1150px; margin: 0 auto;}
+        header { border: 1px solid red; height: 100px; }
+        header h1 { float: left; background: #dcdcdc; padding: 20px 50px; margin: 10px 10px 10px 25px; }
+        header p { float: left; margin-top: 65px; }
+        header ul { list-style: none;padding: 0; float: right; margin-right: 30px;}
+        header li { float : left; padding: 5px;}
+        
+        nav {clear:both; border: 1px solid blue;height: 34px; padding-left: 25px; padding-top: 5px; background: #dcdcdc}
+        nav input {border:1px solid black; padding: 5px; width: 325px;}
+        nav select {padding: 5px; width: 150px;}
+        nav button {padding: 5px; width: 150px; background: grey; font-size: 15px; padding: 3px;}
+        
+        #main { /* border: 1px solid red; */ min-height: 500px; margin-bottom: 5px }
+        #main aside {float: left;}
+        aside ul { list-style: none; padding: 0; margin: 10px 10px 20px 20px; border: 3px solid black; width: 210px; }
+        aside li {border-bottom: 1px solid silver; padding: 5px 12px; font-weight: bold}
+        #banner {float: right; width: 860px; border: 1px solid red; margin: 10px 25px 20px 0px; height: 225px; border: 3px solid black}
+        #banner h3 {margin-top: 100px; text-align: center;}
+        #banner ul {list-style: none; padding: 0; margin-top: 50px; margin-left: 690px}
+        #banner li {float: left; padding: 7px 10px; background: #dcdcdc; margin-right: 10px}
+        
+        #prodlist {clear:both;}
+        #prodlist h3 { margin-left: 20px; }
+        #prodlist ul { list-style: none; padding: 0; margin-left: 50px}
+        #prodlist li { float: left; margin-right: 55px}
+        #prodlist div {width: 100px; height: 100px; background: #dcdcdc; border-radius: 10px }
+        #prodlist p {text-align: center;}
+        
+        footer {clear: both; border-top:1px solid black;}
+        footer ul {list-style: none; padding: 0; margin-left: 50px; float: left; margin-right: 15px;}
+    </style>
 </head>
 <body>
-<header>
-    <h1>logo</h1>
-    <p><u>Login</u> or <u>Create Account</u></p>
-    <ul>
-        <li>contact |</li>
-        <li>store locator |</li>
-        <li>support |</li>
-        <li>CART</li>
-    </ul>
-</header>
-<nav></nav>
-<div id="main">
-    <section>
-        <aside>
-            <ul>
-                <li>All categories</li>
-                <li>Category 1</li>
-                <li>Category 2</li>
-                <li>Category 3</li>
-                <li>Category 4</li>
-                <li>Category 5</li>
-                <li>Category 6</li>
-            </ul>
-        </aside>
-        <div id="banner">
-            <h3>[PROMOTION IMAGES ROTATE HERE]</h3>
-            <ul>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
-            </ul>
-        </div>
-    </section>
-    <section>
-        <div id="prodlist"></div>
-            <h3>Today's Specials</h3>
-            <ul>
-                <li>
-                    <div></div>
-                    <p><a href="#">Product 1</a></p>
-                </li>
-                <li>
-                    <div></div>
-                    <p><a href="#">Product 2</a></p>
-                </li>
-                <li>
-                    <div></div>
-                    <p><a href="#">Product 3</a></p>
-                </li>
-                <li>
-                    <div></div>
-                    <p><a href="#">Product 4</a></p>
-                </li>
-                <li>
-                    <div></div>
-                    <p><a href="#">Product 5</a></p>
-                </li>
-                <li>
-                    <div></div>
-                    <p><a href="#">Product 6</a></p>
-                </li>
-            </ul>
-    </section>
+<div class="container">
+    <header>
+        <h1>logo</h1>
+        <p><u>Login</u> or <u>Create Account</u></p>
+        <ul>
+            <li>contact |</li>
+            <li>store locator |</li>
+            <li>support |</li>
+            <li>CART</li>
+        </ul>
+    </header>
+    <nav>
+        <input type="text">
+        <select><option>Category</option></select>
+        <button type="button">SEARCH</button>
+    </nav>
+    <div id="main">
+        <section>
+            <aside>
+                <ul>
+                    <li>All categories</li>
+                    <li>Category 1</li>
+                    <li>Category 2</li>
+                    <li>Category 3</li>
+                    <li>Category 4</li>
+                    <li>Category 5</li>
+                    <li>Category 6</li>
+                </ul>
+            </aside>
+            <div id="banner">
+                <h3>[PROMOTION IMAGES ROTATE HERE]</h3>
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                </ul>
+            </div>
+        </section>
+        <section>
+            <div id="prodlist">
+                <h3>Today's Specials</h3>
+                <ul>
+                    <li>
+                        <div></div>
+                        <p><a href="#">Product 1</a></p>
+                    </li>
+                    <li>
+                        <div></div>
+                        <p><a href="#">Product 2</a></p>
+                    </li>
+                    <li>
+                        <div></div>
+                        <p><a href="#">Product 3</a></p>
+                    </li>
+                    <li>
+                        <div></div>
+                        <p><a href="#">Product 4</a></p>
+                    </li>
+                    <li>
+                        <div></div>
+                        <p><a href="#">Product 5</a></p>
+                    </li>
+                    <li>
+                        <div></div>
+                        <p><a href="#">Product 6</a></p>
+                    </li>
+                    <li>
+                        <div></div>
+                        <p><a href="#">Product 7</a></p>
+                    </li>
+                </ul>
+                </div>
+        </section>
+    </div>
+    <footer>
+        <ul>
+            <li><h3>ABOUT US</h3></li>
+            <li>Company</li>
+            <li>News</li>
+            <li>Jobs</li>
+            <li>Policies</li>
+            <li>Contact</li>
+        </ul>
+
+        <ul>
+            <li><h3>SOCIAL</h3></li>
+            <li>Facebook</li>
+            <li>Twitter</li>
+            <li>Try our app</li>
+        </ul>
+
+        <ul>
+            <li><h3>SERVICE</h3></li>
+            <li>FAQ</li>
+            <li>Live support</li>
+            <li>Site map</li>
+        </ul>
+    </footer>
+
 </div>
-<footer>
-    <ul>
-        <li><h3>ABOUT US</h3></li>
-        <li>Company</li>
-        <li>News</li>
-        <li>Jobs</li>
-        <li>Policies</li>
-        <li>Contact</li>
-    </ul>
-
-    <ul>
-        <li><h3>SOCIAL</h3></li>
-        <li>Facebook</li>
-        <li>Twitter</li>
-        <li>Try our app</li>
-    </ul>
-
-    <ul>
-        <li><h3>SERVICE</h3></li>
-        <li>FAQ</li>
-        <li>Live support</li>
-        <li>Site map</li>
-    </ul>
-</footer>
 </body>
 </html>
