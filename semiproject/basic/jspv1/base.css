@@ -1,0 +1,20 @@
+        body {margin:0; padding: 0}
+        .container { width: 1150px; margin:0 auto; }
+        
+        nav ul {list-style: none; padding-bottom: 15px;/* = padding: 0 0 15px 0 으로도 쓸 수 있음 */}
+        nav ul li {float:left; padding-left: 150px;}
+        nav hr {clear:both; height: 1px;background: black;}
+    
+        #main { min-height: 500px; }
+        
+        footer hr {height: 1px;background: black;}
+        footer p { text-align: center;  }
+        
+        /* 링크에 대한 스타일 정의 */
+        /* 기본링크 : 검정, 밑줄제거 */
+        /* 링크 hover : 빨강, 밑줄표시 */
+        a {font-weight: bold; }
+        a:link {color: black; text-decoration: none;}
+        a:visited {color: black; text-decoration: none;}
+        a:active {color: black; text-decoration: none;}
+        a:hover {color: red; text-decoration: underline;}

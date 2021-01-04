@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>타입과 연산자</title>
+</head>
+<body>
+<h1>자바스크립트 타입</h1>
+
+<script>
+    // 숫자형
+    let num1 = 123;
+    let num2 = 456.789;
+    let num3 = 10e3; // 10 x 10 x 10
+
+    document.write('<p>' + num1 + '</p>')
+    document.write('<p>' + num2 + '</p>')
+    document.write('<p>' + num3 + '</p>')
+
+    // 문자형
+    let str1 = "Hello, World!!";
+    let str2 = 'Hello, World!!'; // 추천
+
+    document.write('<p>' + str1 + '</p>')
+    document.write('<p>' + str2 + '</p>')
+
+    // 논리형
+    let bool1 = 10 > 5;
+
+    document.write('<p>' + bool1 + '</p>');
+
+    // 객체형 : json
+    // 단일변수에 여러 타입의 값을 저장한 것
+    // 객체를 구성하는 변수들은 property 라 하고
+    // 함수들은 method 라 함
+    // 객체의 속성이나 함수에 접근하려면 '객체명.속성명', '객체명.함수명'을 사용
+    let person = { name: '혜교', kor: 98, eng: 98, mat: 99 }
+
+    document.write('<p>' + person.name + '</p>')
+    document.write('<p>' + person.kor + '/' + person.eng + '/' + person.mat + '</p>')
+
+    // null 과 undefined
+    // 변수 선언 시 초기화하지 않으면 null 형으로 정의
+    // 초기화되지 않은 변수를 호출/사용하면 undefined 로 출력
+    let data;
+
+    document.write('<p>' + data + '</p>')
+</script>
+
+<h1>자료형 변환</h1>
+<script>
+    // 자바스크립트는 변수의 자료형 검사가 유연한 편임 (weakly typed)
+    // 즉, 이미 선언한 변수에 다른 종류의 값을 대입할 수 있음
+    let one = 123;
+    document.write('<p>' + one + '</p>')
+
+    one = 'Hello';
+    document.write('<p>' + one + '</p>')
+
+    // 묵시적 형변환
+    let two = 10 + 'Hello';
+    document.write('<p>' + two + '</p>');
+
+    let three = '3'  * '5';
+    document.write('<p>' + three + '</p>');
+
+    let four = 'World' - 999;
+    document.write('<p>' + four + '</p>');
+    // 자동형변환이 실패해서 적절한 값을 출력하지 못하는 경우
+    // NaN Not a Number 로 출력
+
+    // 명시적 형변환 : Number, String, ParseInt, parseFloat
+    document.write('<p>' + Number('123') + '</p>'); // 문자를 숫자로 사용 희망 시 Number() 쓰면됨
+    document.write('<p>' + String('123') + '</p>'); // 숫자를 문자로 사용 희망 시 String() 쓰면 됨
+    document.write('<p>' + parseInt('123') + '</p>'); //
+    document.write('<p>' + parseFloat('456.789') + '</p>'); //
+
+    // Number vs parseInt
+    document.write('<p>' + Number('001') + '</p>');
+    document.write('<p>' + parseInt('001') + '</p>');
+
+    document.write('<p>' + Number('2021년') + '</p>');
+    document.write('<p>' + parseInt('2021년') +'</p>');
+
+    document.write('<p>' + Number('총35000원') + '</p>'); // 둘 다 안됨 (앞/뒤로 문자 있을 경우 인식 불가)
+    document.write('<p>' + parseInt('총35000원') +'</p>'); // 둘 다 안됨 (앞/뒤로 문자 있을 경우 인식 불가)
+</script>
+
+<h1>연산자</h1>
+<script>
+    // 증감 연산자
+    let x = 10, y = 10;
+
+    document.write('<p>' + (++x + 3) + '</p>');
+    document.write('<p>' + (y++ + 3) + '</p>');
+
+    y = x-- + 5 + --y;
+    document.write('<p>' + y + '</p>');
+
+    // 동등, 동일 비교 연산자
+    let a = 3, b = 3, c = '3';
+
+    document.write('<p>' + (a == b) + '</p>');
+    document.write('<p>' + (a === b) + '</p>');
+    document.write('<p>' + (a == c) + '</p>'); // 타입변환이 자동으로 일어난 후(자동형변환 후) 비교되어 값이 동일하게 나옴
+    document.write('<p>' + (a === c) + '</p>'); // 타입이 서로 다르므로 값 비교 불가
+
+    // 변수 유형 알아보기
+    document.write('<p>' + typeof(num1)+ '</p>');
+    document.write('<p>' + typeof(str1)+ '</p>');
+    document.write('<p>' + typeof(bool1)+ '</p>');
+    document.write('<p>' + typeof(person)+ '</p>');
+</script>
+
+</body>
+</html>
+<!--
+자바스크립트 타입
+크게 3가지 타입 지원 : 숫자, 문자형, 논리형
+-->
+<!--
+자바스크립트 연산자
+산술연산자 : + - * / %
+대입연산자 : = += -= *= /= %=
+증감연산자 : ++x x++ --x x--
+비교연산자 : == != (값의 동일성 체크: equal, 동등) > >= < <= (=== !== 값과 타입의 동질성 체크 : strict equal, 일치)
+논리연산자 : && || ! (short-circuit 연산 지원)
+기타연산자 : + (문자열 결합) ? : typeof (변수 타입출력)
+-->
