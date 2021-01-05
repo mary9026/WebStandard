@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>반복문</title>
+</head>
+<body>
+<h1>반복문</h1>
+<script>
+    // 반복문 : 특정명령(들)을 지정한 횟수만큼 반복 수행하는 실행문
+    // while (조건) { 반복할 구문; 증감식; }
+    // for (초기값; 조건식; 증감식) { 반복할 구문; }
+
+    // ex) 1~10 까지의 정수 출력
+    let i = 1;
+
+    while (i<= 10) {
+        document.write(i + '<br>');
+        i++;
+    }
+
+    for (let j=1; j<=10; ++j) {
+        document.write(j + '<br>');
+    }
+
+    // ex) 1~100 사이 짝수 출력
+    i = 1;
+    while(i<=100) {
+        if (i % 2 ==0)
+            document.write(i+' ');
+        ++i;
+    }
+    document.write('<br>');
+
+    for(let j=1; j<=100; ++j) {
+        if(j % 2 ==0)
+            document.write(j + ' ');
+    }
+    document.write('<br>');
+</script>
+<script>
+    // 객체를 반복문으로 다루기
+    // 객체의 속성을 출력하려면 '객체명.속성명', '객체명[속성명]' 사용
+    let person = {name:'혜교', kor:99, eng:98, mat:99};
+    document.write('<p>' + person.name);
+    document.write(person['name']+'</p>');
+
+    document.write('<p>' + person.name);
+    document.write(' ' + person.kor);
+    document.write(' ' + person.eng);
+    document.write(' ' + person.mat+'</p>');
+
+    // 객체의 모든 속성들을 반복문으로 출력하기
+    // for in 구문은 객체 속성을 추출함
+    for(let prop in person) {
+        document.write(' ' + prop + ':' + person[prop] + '<br>');
+    }
+    document.write('<br>');
+
+    // 여러 개의 객체를 반복문으로 다루기
+    let persons = [{ name:'혜교', age:35 }, {name: '지현', age:30}, {name: '수지', age:25}];
+    // 3개의 객체를 배열에 저장함
+    for(let idx in persons) {
+        document.write(idx + '/' + persons[idx] + '<br>');
+        for(let p in persons[idx]) {
+            document.write(p + '/' + persons[idx][p] + '<br>');
+        }
+        document.write('<br>');
+
+    }
+    // 배열을 fon in 구문으로 실행하면 배열의 위치값(index)이 출력
+
+    // for in 구문보다 좀 더 효과적으로
+    // 객체를 순환하려면 for of 구문을 사용하는 것이 좋음
+    // 참고로 자바에서는 Iterator 클래스와 hasNext, next 메서드와 유사
+    for (let person of persons) {
+        document.write('<p>' + person + '</p>');
+        for (let p in person) {
+            document.write(p + '/' + person[p] + '</br>')
+        }
+    }
+</script>
+
+</body>
+</html>

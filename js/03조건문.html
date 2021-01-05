@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>조건문</title>
+</head>
+<body>
+<h1>조건문</h1>
+<script>
+    // 조건문 : 주어진 식의 결과에 따라 별도의 명령을 수행 (분기문)
+    // if () { }
+    // if () { } else { }
+    // if () { } else if () { } else if () { }
+    // 조건이 많아지면 구문 자체의 가독성이 떨어짐
+
+    // 성적 처리 프로그램
+    // 1. 변수선언
+    let name = "혜교";
+    let kor = 99;
+    let eng = 98;
+    let mat = 99;
+
+    let tot = 0;
+    let avg = 0.0;
+    let grd = '가';
+
+    // 2. 성적처리
+    tot = kor + eng + mat;
+    avg = tot / 3;
+    if (avg >= 90) grd = '수';
+    else if (avg >= 80) grd = '우';
+    else if (avg >= 70) grd = '미';
+    else if (avg >= 60) grd = '양';
+
+    // 3. 결과출력
+    document.write('<p>이름 : ' + name + '</p>')
+    document.write('<p>국어 : ' + kor + '</p>')
+    document.write('<p>영어 : ' + eng + '</p>')
+    document.write('<p>수학 : ' + mat + '</p>')
+    document.write('<p>총점 : ' + tot + '</p>')
+    // document.write('<p>평균 : ' + Math.round(avg)+ '</p>') // 반올림
+    document.write('<p>평균 : ' + avg.toFixed(1)+ '</p>') // 소숫점 자릿수 기준 자름
+    document.write('<p>학점 : ' + grd + '</p>')
+</script>
+
+<script>
+    // 다중 조건문 : switch
+    // 조건이 많은 경우 if 문보다는 switch 문을 추천!
+    // switch (조건식) {
+    //    case 값1 : 문장1 ; break;
+    //    case 값2 : 문장2 ; break;
+    //    case 값3 : 문장3 ; break;
+    // }
+    // let x = Math.round(avg/10);
+    let x = (avg/10).toFixed(0); // 결과값은 문자열
+    switch (x) {
+        case 10 :
+            case 9 : grd = ' 수'; break;
+        case 8 : grd = '우'; break;
+        case 7 : grd = '미'; break;
+        case 6 : grd = '양'; break;
+        default : grd = '가'; break;
+    }
+    document.write('<p>' + x + '</p>');
+    document.write('<p>' + grd + '</p>');
+</script>
+
+<script>
+    // 오늘 날짜의 요일을 한글로 출력하는 프로그램 작성
+    // 오늘의 요일 : new Date().getDay() 이용
+    // 0: 일요일, 1: 월요일 ..., 6: 토요일
+    // document.write('<p>' + new Date().getDay() + '</p>');
+
+    let day = new Date().getDay();
+    let weekOfDay = '일요일';
+
+    switch(day) {
+        case 0: weekOfDay = '일요일'; break;
+        case 1: weekOfDay = '월요일'; break;
+        case 2: weekOfDay = '화요일'; break;
+        case 3: weekOfDay = '수요일'; break;
+        case 4: weekOfDay = '목요일'; break;
+        case 5: weekOfDay = '금요일'; break;
+        case 6: weekOfDay = '토요일'; break;
+    }
+    let today = new Date();
+    document.write('<p>' + today.getFullYear() + '년 ');
+    document.write('' + (today.getMonth() + 1) + '월 ');
+    document.write('' + today.getDate() + '일 ');
+    document.write('' + weekOfDay + '</p>');
+
+    document.write('<p>' + today.getHours() + '시 ');
+    document.write('' + today.getMinutes() + '분 ');
+    document.write('' + today.getSeconds() + '초 </p> ');
+</script>
+</body>
+</html>
+<!--
+d2.naver.com
+dive into deep learning
+-->

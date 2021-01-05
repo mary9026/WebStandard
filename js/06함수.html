@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>함수</title>
+</head>
+<body>
+<h1>함수</h1>
+<script>
+    // 함수
+    // 하나의 특별한 목적을 수행하기 위해 설계되고 작성된 코드들의 묶음
+    // 특정 작업이 필요할때 마다 호출하여 반복적으로 수행 가능
+    // 자바스크립트에서는 함수를 일종의 자료형으로 인식 (중요!)
+
+    // 함수 정의 시 function 이라는 예약어를 사용
+    // 함수에 전달할 매개변수는 함수명 뒤 괄호에 쉼표로 구분해서 지정
+    // 함수의 몸체를 구성하는 코드블럭은 중괄호로 정의함
+    // function 이름 (매개변수, 매개변수) {
+    //      함수몸체
+    // }
+
+    // 단을 입력받아 구구단을 출력하는 프로그램
+    // 구구단 출력 1 (7단)
+    document.write('7 x 1 = 7<br>');
+    document.write('7 x 2 = 14<br>');
+    document.write('7 x 3 = 21<br>');
+    document.write('7 x 4 = 28<br>');
+    document.write('7 x 5 = 35<br>');
+    document.write('7 x 6 = 42<br>');
+    document.write('7 x 7 = 49<br>');
+    document.write('7 x 8 = 56<br>');
+    document.write('7 x 9 = 63<br>');
+
+    document.write('<br>');
+    // 구구단 출력 2 (7단)
+    for (let i = 1; i<=9; ++i)
+        document.write('7 x ' + i + ' = ' + (7*1) + '<br>');
+
+    document.write('<br>');
+    // 구구단 함수 정의
+    function gugudan(dan) {
+        for (let i = 1; i<=9; ++i)
+            document.write(dan + ' x ' + i + ' = ' + (dan*1) + '<br>');
+    }
+
+    // 함수 호출 : 함수명(인지값)
+    gugudan(9);
+
+    document.write('<br>');
+    // 사용자로부터 값 입력받기 : 변수명 = prompt(안내문구)
+    let dan = prompt('단을 입력하세요 (1~9)');
+    gugudan(dan);
+
+</script>
+<script>
+    // 함수의 리턴값
+    // 함수의 맨 마지막에 return 문을 사용하면
+    // 함수를 호출한 주체에게 결과를 넘길 수 있음
+    // 단, 함수의 중간에 return 문을 사용하면
+    // 함수의 나머지 부분을 수행하지 않고 중단하는 역할을 하기도 함
+
+    // 2개의 숫자를 입력받아 덧셈을 수행하고
+    // 결과를 출력하는 함수 add 를 작성하세요
+    function add(x, y) {
+        let sum = x + y;
+        document.write('<p>' + x + '+' + y + '=' + (x+y) + '</p>');
+    }
+
+    add(10, 5);
+
+    function add2(x,y) {
+        let sum = x + y;
+        return sum;
+    }
+    result = add2(10, 5);
+    document.write('<p>10 + 5 = ' + result + '</p>');
+
+</script>
+<script>
+    // 익명함수 anonymous function
+    // 함수를 정의할때 이름을 지정하지 않은 함수를 의미
+    // 함수를 실행하려면 반드시 함수명을 호출해야 하는데
+    // 익명함수는 함수정의와 동시에 함수를 실행할 수도 있음
+
+    // 간단한 인삿말을 출력하는 함수 // 꾸준히 사용 시 이름을 붙혀셔 하기 식을 사용 권장
+    function sayHello(msg) {
+        document.write('<p>' + msg + '</p>')
+    }
+    sayHello('Hello, World!');
+
+    // 1회성 의미로 사용 시에는 하기와 같은 식 사용 권장 ?
+    let sayHello2 = function (msg) {
+        document.write('<p>' + msg + '</p>')
+    }
+    // 익명함수 정의 후 변수에 저장 : C 언어의 함수포인터와 유사
+    sayHello2('Hello, JavaScript!');
+    // 변수명으로 익명함수 호출
+
+</script>
+
+<span id="time"></span>
+<script>
+    // 특정함수를 주기적으로 실행하기
+    // 주기적으로 특정함수를 실행하려면 setInterval 과
+    // setTimeout 함수를 사용하면 됨
+
+    // setInterval : 일정시간 간격으로 함수를 반복실행
+    //               clearInterval 함수로 중지시킬 수 있음
+    //               setInterval(함수명. 주기(ms))
+
+    // setTimeout : 일정시간이 지난 후 함수를 한번만 실행
+    //              clearTimeout 함수로 중지시킬 수 있음
+    //              setTimeout(함수명, 시간(ms))
+
+    function today() {
+        let today = new Date();
+        let hh = today.getHours();
+        let mm = today.getMinutes();
+        let ss = today.getSeconds();
+        let time = hh + ':' + mm + ':' + ss;
+        document.getElementById('time').innerHTML = time;
+    }
+
+    today(); // 한번만 시간을 출력하고 끝
+    setInterval(today(), 1000);
+    // 1초마다 today 함수 실행
+</script>
+
+</body>
+</html>

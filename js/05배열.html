@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>배열</title>
+</head>
+<body>
+<h1>배열 </h1>
+<script>
+    // 배열 : 여러개의 동일한 종류의 값들로 구성된 집합
+    //        각 값들은 위치값(index)으로 참조 가능
+    // 변수명 = [값, 값, 값]
+    // 변수명 = Array(값, 값, 값)
+    // 변수명 = new Array(값, 값, 값])
+
+    // 성적처리프로그램
+    let names = ['지훈', '민호', '지원'];
+    let kors = [60, 45, 70];
+    let engs = Array(98, 75, 65);
+    let mats = new Array(99, 84, 80);
+
+    let tots = [0,0,0];
+    let avgs = [0.0, 0.0, 0.0];
+    let grds = ['가', '가', '가'];
+
+    for(let i=0; i<=2; ++i) {
+        tots[i] = kors[i] + engs[i] + mats[i];
+        avgs[i] = tots[i] / 3;
+
+        let x = parseInt(avgs[i].toFixed(0));
+        switch (x) {
+            case 10 :
+                case 9: grds[i] = '수'; break;
+            case 8 : grds[i] = '우'; break;
+            case 7 : grds[i] = '미'; break;
+            case 6 : grds[i] = '양'; break;
+        }
+
+        document.write('<p>' + names[i] + ' / ' +
+                kors[i] + '/' + engs[i] + ' / ' +
+                mats[i] + '/' + tots[i] + ' / ' +
+                avgs[i].toFixed(1) + ' / ' + grds[i] + '</p>')
+    }
+</script>
+</body>
+</html>
