@@ -27,7 +27,7 @@
         tots[i] = kors[i] + engs[i] + mats[i];
         avgs[i] = tots[i] / 3;
 
-        let x = parseInt(avgs[i].toFixed(0));
+        let x = parseInt(avgs[i]/10); // .toFixed(0)
         switch (x) {
             case 10 :
                 case 9: grds[i] = '수'; break;

@@ -60,7 +60,7 @@
     document.write('<p>' + str.lastIndexOf('abc') + '</p>');
     // 맨끝을 기준으로 abc 의 위치를 찾아봄
 
-    let jumin = '123456--1234567';
+    let jumin = '123456-1234567';
 
     document.write('<p>' + jumin.charAt(7) + '</p>');
     // 특정위치의 문자 추출
@@ -205,7 +205,19 @@
     // 특정 비밀번호가 올바르게 만들어졌는지 확인
     // 조건 : 알파벳소문자로 시작하고 대/소문자/숫자/특수문자(!@#$-)를
     //       최소 하나이상 포함해서 총 문자길이가 8~16사이 비밀번호 작성
+    reg1 = /^[a-z][a-zA-Z0-9!@#$-]{7,15}$/;
+    reg2 = /^[a-z].{1,2}(?=.*[a-zA-Z]).(?=.*[0-9]).(?=.*[!@#$-]).{7,15}$/;
+    reg3 = /^[a-z](?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$-])[a-zA-Z0-9!@#$-]{7,15}$/;
 
+    data1 = '123xyz!Abc'
+    data2 = 'abc0123Xyz'
+    data3 = 'aa1231AAZZZ!'
+
+    document.write('<p>비밀번호 정규식 1 : ' + reg1.test(data1) + '</p>');
+    document.write('<p>비밀번호 정규식 1 : ' + reg1.test(data2) + '</p>');
+    document.write('<p>비밀번호 정규식 2 : ' + reg2.test(data1) + '</p>');
+    document.write('<p>비밀번호 정규식 2 : ' + reg2.test(data2) + '</p>');
+    document.write('<p>비밀번호 정규식 3 : ' + reg3.test(data3) + '</p>');
 </script>
 </body>
 </html>

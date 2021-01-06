@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>문서객체모델</title>
+    <style>
+        table { width: 75%; margin: 0 auto; border-collapse: collapse; table-layout: fixed; margin-bottom: 100px}
+        th, td {border: 1px solid black; text-align: center; padding: 10px; }
+        td:nth-of-type(2) {white-space: nowrap; overflow: hidden; text-overflow: ellipsis;  }
+    </style>
+</head>
+<body>
+<h1>문서객체모델</h1>
+<div id="div1"></div>
+<div class="div2"></div>
+<div name="div3"></div>
+<div></div>
+<p></p>
+
+<script>
+    let div1 = document.getElementById('div1');     // id 로 요소검색
+    let div2 = document.getElementsByClassName('div2');     // 클래스명으로 검색
+    let div3 = document.getElementsByName('div3');      // 이름속성으로 검색
+    let divs = document.getElementsByTagName('div');       // 태그명으로 검색
+
+    let p1 = document.querySelector('p');               // CSS 선택자로 검색
+    let p2 = document.querySelectorAll('p');            // CSS 선택자로 검색 - 결과는 복수
+    let div4 = document.querySelector('#div1');         // CSS 선택자로 검색
+    let div5 = document.querySelector('.div2');         // CSS 선택자로 검색
+
+    div1.innerHTML = 'Hello, World!';
+    div2[0].innerHTML = '이글이 보이나요 ? '; // Elements 모든 요소(복수) 이다보니 배열 형식으로 지정이 필요 (1개만 지정되어 있으므로 첫번째꺼를 불러온다는 의미)
+    div3[0].innerHTML = '한번 더 Hello, World !';
+    divs[3].innerHTML = '시간은 금이라구, 친구!!';
+
+    p1.innerHTML = 'Hello, World,Again!';
+    p2[0].innerHTML = '안녕 디지몬 !';
+
+    div1.style.color = 'red';
+    div1.style.fontWeight = 'bold';
+
+    // div2 이탤릭
+    // div3 밑줄, 녹색 글자색
+    // 4번째 div 궁서체
+    // p1 노랑색 배경
+    div2[0].style.fontStyle = 'Italic';
+    div3[0].style.color = 'green';
+    div3[0].style.textDecoration = 'underline';
+    divs[3].style.fontFamily = '궁서체';
+    p1.style.background = 'yellow';
+
+</script>
+<script>
+    // 문서제목에 현재시간을 표시하는
+    // DOM 스크립트 작성
+    // 단, 현재시간을 표시하는 함수는 toda 라 정함
+    function today() {
+        let today = new Date();
+        let hh = today.getHours();
+        let mm = today.getMinutes();
+        let ss = today.getSeconds();
+
+        let time = hh + ':' + mm + ':' + ss;
+        return time;
+    }
+    // alert(today());
+    let time = '문서객체모델 [' + today() + ']';
+    let title = document.querySelector('title');
+    title.innerHTML = time;
+</script>
+
+<h2>이미지 조작하기</h2>
+<div><button type="button" id="showbtn">이미지 나와랏!</button>
+<button type="button" id="hidebtn">이미지 사라져랏!</button></div>
+<div id="imgdiv"><img src="../img/SSBU.png"></div>
+
+<script>
+    let showbtn = document.getElementById('showbtn');
+    let hidebtn = document.getElementById('hidebtn');
+    let imgdiv = document.getElementById('imgdiv');
+
+    showbtn.addEventListener('click', showimg);
+    hidebtn.addEventListener('click', hideimg);
+
+    // 버튼 클릭 시 띄울 이미지들을 배열로 정의
+    let images = ['SSBU.png', 'AC_Isabelle.png', 'Marshal.png'];
+
+    function showimg() {
+        // img 요소, src 속성 생성
+        let img = document.createElement('img'); // img 태그 하나 만들어짐
+        let src = document.createAttribute('src'); // src 태그 하나 만들어짐
+
+        // src 속성에 이미지경로 지정 후 img 요소에 지정
+        // src.value="../img/SSBU.png";
+        let idx = parseInt(Math.random() * (3-0));
+        src.value='../img/'+images[idx];
+        img.setAttributeNode(src);
+
+        // div 요소에 img 요소 추가
+        imgdiv.appendChild(img);
+    }
+
+    function hideimg() {
+        // let img = imgdiv.lastChild; // imgdiv 의 마지막 자식요소 선택 (마지막부터 삭제)
+        let img = imgdiv.firstChild; // imgdiv의 첫번째 자식요소 선택 (첫번째부터 삭제)
+
+        imgdiv.removeChild(img); // 선택한 부모요소의 자식요소 제거
+    }
+</script>
+
+<h2>동적으로 테이블 생성하기1</h2>
+<script>
+
+</script>
+
+<table>
+    <colgroup> <!-- 테이블 컬럼너비 정의 -->
+        <col style="width: 10%">
+        <col>
+        <col style="width: 15%">
+        <col style="width: 15%">
+        <col style="width: 10%">
+    </colgroup>
+
+    <thead>
+    <tr>
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+        <th>조회</th>
+    </tr>
+    </thead>
+
+    <tbody>
+        <script>
+        for(let i = 1; i<=15; ++i) {
+            document.write("<tr><td>" + (15-i+1) + "</td>"
+            + "<td><a href='#'>시간은 금이라구, 친구! 진짜라구, 친구! 정말이라구, 친구! 사실이라구, 친구! 참말이라구, 친구!</a></td>"
+            + "<td>siestageek</td>"
+            + "<td>2014-05-05</td>"
+            + "<td>777</td></tr>");
+        }
+        </script>
+    </tbody>
+</table>
+
+
+<h2>동적으로 테이블 생성하기2</h2>
+<table id="board">
+
+</table>
+<script>
+    // table -> tbody -> tr -> th/td -> 텍스트 순으로 요소 생성
+    // 텍스트 -> th/td -> tr -> tbpdy -> table 순으로 자식요소 추가
+    let table = document.getElementById('board');
+    let tbody = document.createElement('tbody');
+
+    // 제목행
+    let tr = document.createElement('tr');
+    let th1 = document.createElement('th'); // 번호
+    let th2 = document.createElement('th'); // 제목
+    let th3 = document.createElement('th'); // 작성자
+    let th4 = document.createElement('th'); // 작성일
+    let th5 = document.createElement('th'); // 조회수
+
+
+    // 제목행에 작성할 텍스트노드 생성
+    let txt1 = document.createTextNode('번호');
+    let txt2 = document.createTextNode('제목');
+    let txt3 = document.createTextNode('작성자');
+    let txt4 = document.createTextNode('작성일');
+    let txt5 = document.createTextNode('조회수');
+
+
+    // 생성한 텍스트를 제목열에 자식요소로 추가
+    th1.appendChild(txt1);
+    th2.appendChild(txt2);
+    th3.appendChild(txt3);
+    th4.appendChild(txt4);
+    th5.appendChild(txt5);
+
+    // 생성한 제목열들을 제목행에 자식요소로 추가
+    tr.appendChild(th1);
+    tr.appendChild(th2);
+    tr.appendChild(th3);
+    tr.appendChild(th4);
+    tr.appendChild(th5);
+
+    // 생성한 제목행을 tbody 에 자식요소로 추가
+    tbody.appendChild(tr);
+
+    // 생성한 tbody를 테이블에 자식요소로 추가
+    table.appendChild(tbody)
+
+
+
+
+
+</script>
+
+</body>
+</html>
+
+<!--
+DOM document object model
+html/xml 문서의 각 요소에 접근하기 위해 만들어둔 객체들의 모음
+DOM 을 이용해서 문서 내 모든 요소를 접근하고 조작할 수 있음
+즉, 기본 문서에 요소를 추가/수정/삭제할 수 있고
+기존 요소를 수정/삭제할 수 있으며 스타일 역시 추가/수정/삭제할 수 있음
+
+브라우저로 웹문서를 읽으면 분석(parsing) 과정을 거쳐 자동으로 생성됨
+
+DOM 중에서 document 개체는 문서 자체를 의미
+즉, 웹문서내 특정요소에 접근하려면 반드시
+document 개체를 통해야만 함
+한편, document 객체를 통해 문서의 특정요소를 선택하려면
+getElementById, getQuerySelector,
+getElementByTagName, getElementByClassName,
+getElementByName, querySelectorAll  등의 함수를 이용해야 함
+
+DOM을 이용해서 선택한 html 요소의 내용이나 속성을 변경하려면
+'요소명.innerHTML', 또는 '요소명.속성명'을 이용하면 됨
+또한, 선택한 html 요소의 스타일을 변경하려면
+'요소명.style.스타일속성'을 사용하면 됨
+-->
+<!--
+DOM 을 이용해서 문서에 새로운 요소나 속성을 추가하려면
+createElement, createAttribute, createTextNode,
+appendChild, removeChild, setAttribute 등의 함수 이용
+-->
+<!--
+    k-apt.go.kr
+-->
