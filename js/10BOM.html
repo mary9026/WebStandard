@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>BOM</title>
+</head>
+<body>
+<h1>BOM</h1>
+<h2>window 객체</h2>
+<script>
+    if (confirm('민초를 좋아하시나요 ? '))
+        alert('오예 ! ');
+    else
+        alert('시무룩ㅠㅠ ');
+</script>
+
+<div>
+    <button type="button" id="newbtn">새창만들기</button>
+    <button type="button" id="rmvbtn">새창닫기</button>
+    <button type="button" id="movbtn">새창위치변경</button>
+    <button type="button" id="sizbtn">새창크기변경</button>
+    <button type="button" id="cntbtn">화면중앙에 창 띄우기</button>
+    <button type="button" id="autobtn">창 띄우고 위치/크기변경 무한 실행</button>
+    <button type="button" id="stopbtn">무한대 실행 중지</button>
+</div>
+
+<script>
+    let newbtn = document.getElementById('newbtn');
+    let rmvbtn = document.getElementById('rmvbtn');
+    let movbtn = document.getElementById('movbtn');
+    let sizbtn = document.getElementById('sizbtn');
+    let cntbtn = document.getElementById('cntbtn');
+    let autobtn = document.getElementById('autobtn');
+    let stopbtn = document.getElementById('stopbtn');
+
+    // 버튼객체에 이벤트 추가
+    newbtn.addEventListener('click', makewin);
+    rmvbtn.addEventListener('click', closewin);
+    movbtn.addEventListener('click', movewin);
+    sizbtn.addEventListener('click', sizewin);
+    cntbtn.addEventListener('click', cntrwin);
+    autobtn.addEventListener('click', autowin);
+    stopbtn.addEventListener('click', stopwin);
+
+    // 생성된 창을 관리하기 위해 변수 선언
+    let newwin = null;
+
+
+    // 새창 띄우기 핸들러
+    // window.open(문서경로, 창이름, 옵션션)
+    function makewin() {
+        // window.open('09DOM.html', '');
+        if(newwin == null)
+            newwin = window.open('09DOM.html', '', 'width=300, height=300');
+    }
+
+    // 열려있는 창 닫기 핸들러
+    // window.close(), 객체명.close()
+    function closewin() {
+        if(newwin != null) {
+            newwin.close();
+            newwin = null;
+        }
+    }
+
+    // 생성한 창의 위치를 변경
+    // moveTo(x,y), moveBy(x,y)
+    // 변수 x, y 는 너비와 높이를 의미
+    function movewin() {
+        // newwin.moveTo(500,500);      // 절대좌표방식
+        // newwin.moveBy(500,500);         // 상대좌표방식
+        let x = Math.floor(Math.random() * 1000);
+        let y = Math.floor(Math.random() * 800);
+
+        newwin.moveTo(x, y);
+        newwin.focus();     // 이동시킨 창이 전면으로 나옴
+    }
+
+    // 생성한 창의 크기를 변경 (move랑 비슷함)
+    // resizeTo(x,y), resizeBy(x,y)
+    // 변수 x, y 는 가로와 세로를 의미
+    function sizewin() {
+        let w = Math.floor(Math.random() * 350);
+        let h = Math.floor(Math.random() * 350);
+
+        newwin.resizeTo(w, h);
+        newwin.focus();
+    }
+
+    // 생성한 창을 화면중앙에 배치하기
+    // 화면 screen 가로크기 : screen.width
+    // 화면 screen 세로크기 : screen.height
+    // 현재창의 가로크기 : 창객체.outerWidth
+    // 현재창의 세로크기 : 창객체.outerHeight
+    function cntrwin() {
+        let sw = screen.width;
+        let sh = screen.height;
+        let ww = newwin.outerWidth;
+        let wh = newwin.outerHeight;
+
+        newwin.moveTo((sw/2) - (ww/2), (sh/2) - (wh/2));
+        newwin.focus();
+    }
+
+    // setInterval 객체를 저장하는 변수수
+   let itval = null;
+
+
+    // 창 띄우고 위치/크기 변경 무한대로 실행
+    function autowin() {
+        closewin();     // 기존창을 지우고
+        makewin();      // 새로운 창 생성
+
+        // while(true) {
+        //     movewin();
+        //     sizewin();
+        // } // 너무 빠르게 위치/크기 변경됨
+
+        itval = setInterval( function () {
+            movewin(); sizewin();
+            }, 300 );
+    }
+
+    // 위치/크기변경 무한대로 실행하는 것 중지하기
+    function stopwin() {
+        clearInterval(itval);
+    }
+
+
+</script>
+
+<h2>screen 객체</h2>
+
+<h2>location 객체</h2>
+
+<div>
+    <button type="button" id="gbtn">구글로</button>
+    <button type="button" id="nbtn">네이버로</button>
+    <button type="button" id="dbtn">다음으로</button>
+</div>
+
+<script>
+    let url = location.href;
+
+    document.write('문서 url : ' + location.href + '<br>');
+    document.write('url의 호스트 : ' + location.hostname + '<br>');
+    document.write('url의 파일경로 : ' + location.pathname + '<br>');
+</script>
+<script>
+    let gbtn = document.getElementById('gbtn');
+    let nbtn = document.getElementById('nbtn');
+    let dbtn = document.getElementById('dbtn');
+
+    gbtn.addEventListener('click', function() {
+        location.href='http://google.co.kr';
+    })
+    nbtn.addEventListener('click', function () {
+        location.href='http://naver.com';
+    })
+    dbtn.addEventListener('click', function () {
+        location.href='http://daum.net';
+    })
+
+</script>
+
+<h2>navigator 객체</h2>
+<script>
+    let appname = navigator.appName;
+    let appcode = navigator.appCodeName;
+    let appver = navigator.appVersion;
+    let ua = navigator.userAgent;
+    let os = navigator.platform;
+
+    document.write(appname + '<br>');
+    document.write(appcode + '<br>');
+    document.write(appver + '<br>');
+    document.write(ua + '<br>');
+    document.write(os + '<br>');
+</script>
+
+<script>
+    /// 사용자 브라우져에 따라 인사말을 다르게 출력
+    // IE : 당신은 IE를 사용중이군요. Edge로 얼른 바꾸세요
+    // FF : 당신은 FF를 사용중이군요.
+    // CR : 당신은 CR를 사용중이군요.
+    // EG : 당신은 EG를 사용중이군요.
+</script>
+
+</body>
+</html>
+<!--
+브라우져객체 BOM
+자바스크립트를 이용해서 접속자의 브라우져/운영체제 정보를 알아내거나
+브라우져의 크기나 위치를 설정하는 등의 브라우져의 여러기능을
+동적으로 제어할 수 있도록 지원하는 프로그래밍 모델
+
+DOM 은 W3C 표준이지만, BOM 은 표준이 아니기 때문에
+브라우져마다 사용하는 방법이나 결과가 다를 수 있음
+-->
+<!--
+window 객체
+브라우져의 창을 제어할 수 있는 여러가지 속성제공
+alert       : 간단한 메세지 창 생성
+prompt      : 간단한 입력창 생성
+confirm     : 간단한 선택창 생성
+moveTo
+resizeTo
+-->
+<!--
+screen 객체
+사용자의 디스플레이에 대한 다양한 정보를 제어하는 객체
+화면크기, 색상에 대한 정보를 알 수 있음
+screen.width
+screen.height
+-->
+<!--
+location 객체
+현재 브라우져가 표시하는 문서의 url 을 얻거나
+브라우져에 표시할 문서의 위치를 지정할 수 있음
+location.href   : 현재 브라우져 url 조회/변경
+location.hostname   : 현재 문서의 url 중 호스트 조회
+location.pathname   : 현재 문서의 url 중 파일경로 조회
+-->
+<!--
+navigator 객체
+웹 페이지를 실행하는 브라우져의 정보를 알 수 있음
+즉, 운영체제 종류나 브라우져 유형을 볼 수 있음
+appCodeName : 브라우져 코드네임
+appName     : 브라우져 이름
+appVersion  : 브라우져 버젼
+platform    : 브라우져가 실행중인 시스템 환경
+userAgent   : 브라우져의 전체 정보
+-->
