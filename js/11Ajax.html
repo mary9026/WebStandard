@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax</title>
+</head>
+<body>
+<h1>Ajax</h1>
+<P>ajax 통신결과 <span id="msg"></span></P>
+<div><button type="button" id='saybtn'>인사말하기</button></div>
+
+<script>
+
+    let saybtn = document.getElementById('saybtn');
+    saybtn.addEventListener('click', sayHello);
+
+    function sayHello() {
+        // 1. XML:HttpRequest 객체 초기화
+        // 2. 서버에 비동기 요청 보냄
+        // 3. 서버에서 응답이 오면 처리함
+        let msg = document.getElementById('msg');
+
+        // 1
+        let req = new XMLHttpRequest();
+
+        // 3 서버의 응답에 따라 처리할 절차를 콜백함수로 정의함
+        // readystatechange : 서버에서의 응답여부 확인 이벤트 속성
+        // readystate : 서버응답속성
+        // 0 : 초기화되지 않음
+        // 1 : 서버와 연결성공
+        // 2 : 서버와 요청수락
+        // 3 : 서버가 요청처리중임
+        // 4 : 서버가 요청처리완료 & 곧 응답예정
+        // status : HTTP 상태코드 - 요청 성공 여부 확인
+        // 200 : 처리완료, 응답 잘 받음
+        // 404 : 처리실패, 요청데이터가 존재하지 않음
+        // 500 : 처리실패, 서버상 코드의 오류
+        // responseText - 서버가 보내준 응답을 텍스트형식으로 받음
+        req.onreadystatechange = function () { // onreadystatechange 이게 실행되면 하기 코드들로 처리가 되어야 함
+            if (req.readyState == 4) {  // 서버가 보낼 응답수취 여부
+                if (req.status == 200)  // 처리성공 여부
+                    msg.innerHTML = req.responseText;
+                else
+                    msg.innerHTML = req.status;
+            } else {
+                msg.innerHTML = req.readyState;
+            }
+        }
+
+        // 2 비동기방식으로 요청을 생성한 후 서버로 보냄
+        // open (요청방식, url, 비동기여부)
+        req.open('get', 'hello.txt', true);
+        req.send();
+    }
+</script>
+
+<h2>주소검색</h2>
+<div>
+    <select id="sido">
+    </select>
+
+    <select id="gugun">
+    </select>
+
+    <select id="dong">
+    </select>
+</div>
+<p id="addr"></p>
+
+<script>
+    // 비동기방식 가져올 데이터의 url 정의
+    let url1 = 'http://localhost:8080/zipcode/sido.jsp'
+    let url2 = 'http://localhost:8080/zipcode/gugun.jsp'
+    let url3 = 'http://localhost:8080/zipcode/dong.jsp'
+
+    // 변수선언
+    let sido = document.getElementById('sido');
+    let gugun =document.getElementById('gugun');
+    let dong = document.getElementById('dong');
+
+    // 시도에 목록 출력
+    // 비동기 방식으로 데이터 가져오기
+    // zipcode_2013 테이블에서 시도만 추출해서 sido 라는 select 요소에 option 요소 추가
+
+    getsido();
+
+    function getsido() {
+        req = new XMLHttpRequest();
+        req.onreadystatechange = function () {
+            if (req.readyState == 4 && req.status == 200) {
+                makesido(req.responseText);
+            }
+        };
+        req.open('get', url1, true);
+        req.send();
+    }
+
+    // 시도에서 받은 데이터를 option 요소에 추가
+    function makesido(sd) {
+        let cols = sd.split(','); // 받은 문자열을 split 함수를 이용하여 ',' 을 기준으로 문자열 자름 (결과값 배열)
+
+        opt = document.createElement('option');
+        txt = document.createTextNode('-- 시/도 --');
+        opt.appendChild(txt);
+        sido.appendChild(opt);
+
+        for (let col of cols) {
+            if (col == '') continue;
+            opt = document.createElement('option');
+            opt.value=col.trim(); // option 요소에 value 속성 추가
+            txt = document.createTextNode(col.trim());
+            opt.appendChild(txt);
+            sido.appendChild(opt);
+        }
+    }
+
+
+    // 첫번째 select 요소에 이벤트 핸들러 등록
+    sido.addEventListener('change', getgugun);
+
+    // 선택한 시도로 구군을 검색해서 비동기로 처리함
+    function getgugun() {
+        req = new XMLHttpRequest();
+        req.onreadystatechange = function () {
+            if(req.readyState == 4 && req.status == 200) {
+                makegu(req.responseText);
+            }
+        };
+        let qry = '?sido=' + sido.value; // 검색을 위한 질의문자열 생성 (시, 도의 값)
+        req.open('get', url2+qry, true);
+        req.send();
+    }
+
+    function makegu(gg) {
+        let cols = gg.split(',');
+
+        opt = document.createElement('option');
+
+        while(gugun.lastChild) {
+            gugun.removeChild(gugun.lastChild);
+        }
+
+        txt = document.createTextNode('-- 시/군/구 --');
+        opt.appendChild(txt);
+        gugun.appendChild(opt);
+
+        for (let col of cols) {
+            if (col == '') continue;
+            opt = document.createElement('option');
+            opt.value=col.trim();
+            txt = document.createTextNode(col.trim());
+            opt.appendChild(txt);
+            gugun.appendChild(opt);
+        }
+    }
+
+    // 두번째 select 요소에 이벤트 핸들러 등록
+    gugun.addEventListener('change',getdong);
+
+    function getdong() {
+        req = new XMLHttpRequest();
+        req.onreadystatechange = function () {
+            if (req.readyState == 4 && req.status == 200){
+                makedong(req.responseText);
+            }
+        };
+
+        let qry1 = '?sido=' + sido.value; // 검색을 위한 질의문자열 생성(시,도의 값)
+        let qry2 = ' &gugun=' + gugun.value; // 검색을 위한 질의문자열 생성(시,구의 값)
+
+        let str = url3+qry1+qry2;
+
+        req.open('get',str,true);
+        req.send();
+    }
+
+    function makedong(dd) {
+        let cols = dd.split(',');
+
+        opt = document.createElement('option');
+
+        while(dong.lastChild){ // 읍/면/동 목록에 option태그가 있으면?
+            dong.removeChild(dong.lastChild);
+        }
+
+        txt = document.createTextNode('--읍/면/동--');
+        opt.appendChild(txt);
+        dong.appendChild(opt);
+
+        for (let col of cols) {
+            if (col == '') continue;
+            opt = document.createElement('option');
+            opt.value = col.trim();
+            txt = document.createTextNode(col.trim());
+            opt.appendChild(txt);
+            dong.appendChild(opt);
+        }
+    }
+
+
+</script>
+
+</body>
+</html>
+<!--
+Ajax
+asynchronous Javascript and XML
+HTTP 프로토콜을 이용해서 비동기방식으로 데이터를 주고 받는 기법을 의미
+HTTP 프로토콜은 기본적으로 동기방식의 데이터 교환만을 지원했었는데
+1993년 MS의 Microsoft.XMLHTTP 라는 컴퍼넌트 덕택으로
+비동기 처리기술이 활성화됨
+2000년 12월, FF가 XMLHttpRequest 라는 이름으로 지원
+그 이후 2004년 4월, CR이 구글맵으로 통해 Ajax 기술 지원
+-->
+<!--
+동기 vs 비동기 처리
+동기 : 모든 작업은 개별 작업의 처리시간에 맞춰 실행되는 방식
+       FIFO : 먼저 요청한 작업이 처리됨
+              처리시간이 길어지면 나머지 작업들은 하염없이 기다려야 함
+       설계가 간단하고 직관적
+       결과가 나올때까지 아무것도 못하고 계속 대기해야 함
+       ex) 명절 기차표 예매, 은행 송금
+
+비 동기 : 모든 작업은 개별 작업의 처리시간과 상관없이 자발적으로 실행되는 방식
+        LIFO : 먼저 요청한 작업이 먼저 끝난다고 보장하지 않음
+               처리시간이 길어질 것 같으면 다른 작업을 우선적으로 실행할 수 있음
+        설계가 복잡, 결과가 주어질때까지 시간이 걸리더라도
+        그 동안 다른 작업을 할 수 있으므로 자원을 효율적으로 사용
+        ex) 마트 물건 계산
+-->
+<!--
+우편번호 테이블에서 데이터를 읽어오기 위한 JSP 환경 구축순서
+1. JDK 설치 - amazon correto JDK8
+   JAVA_HOME 환경변수 설정
+2. tomcat.apache.org 에서 Tomcat8.5.61 다운로드
+   WAS : web application server
+   윈도우 : 64bit window zip
+   c:/Java 에 압축해제
+3. 기본 페이지 띄우기
+   bin 아래 startup.bat 실행
+   브라우져에서 127.0.0.1:8080 입력 -> welcome 페이지 확인
+4. 개발용 페이지 띄우기
+   webapps/ROOT 디렉토리에 zipcode 폴더 생성 후 관련 jsp 파일 복사
+   브라우져에서 127.0.0.1:8080/zipcode/jsp 파일명 (ex) sido.jsp)
+-->
+<!--
+CORS
+cross-origin resource sharing
+보안상의 이유로 스크립트내에서 실행중인 호스트와 다른
+호스으를 비동기방식으로 불러오지 못하게 제한하는 기법
+
+11Ajax.html이 실행되는 호스트 - http://localhost:63342
+비동기로 zipcode/sido.jsp가 실행되는 호스트 - http://localhost:8080
+따라서, 동일한 서버에서 실행되어야 CORS로 인한 제한이 해소됨
+=> 11Ajax.html과 sido.jsp를 동일한 서버에 업로드 할 것!
+-->
