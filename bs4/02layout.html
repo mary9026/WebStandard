@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- 부트스트랩 아이콘 링크 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <title>레이아웃</title>
+    <style>
+        .bg { background: #dddddd; border: 1px solid black; text-align: center}
+    </style>
+</head>
+<body>
+<h1>레이아웃</h1>
+<h2>grid system</h2>
+<div class="container">
+    <div class="row bd">
+        <div class="col bg">1</div>
+        <div class="col bg">1</div>
+        <div class="col bg">1</div>
+        <div class="col bg">1</div>
+        <div class="col bg">1</div>
+        <div class="col bg">1</div>
+
+        <div class="col bg">1</div>
+        <div class="col bg">1</div>
+        <div class="col bg">1</div>
+        <div class="col bg">1</div>
+        <div class="col bg">1</div>
+        <div class="col bg">1</div>
+    </div>
+</div>
+<hr>
+<div class="container">
+    <div class="row bd">
+        <div class="col-4 bg">1</div>
+        <div class="col-4 bg">1</div>
+        <div class="col-4 bg">1</div>
+
+    </div>
+</div>
+<hr>
+<h3>col=sm : 750px</h3>
+<div class="container">
+    <div class="row bd">
+        <div class="col-sm-1 bg">1</div>
+        <div class="col-sm-1 bg">1</div>
+        <div class="col-sm-1 bg">1</div>
+        <div class="col-sm-1 bg">1</div>
+        <div class="col-sm-1 bg">1</div>
+        <div class="col-sm-1 bg">1</div>
+
+        <div class="col-sm-1 bg">1</div>
+        <div class="col-sm-1 bg">1</div>
+        <div class="col-sm-1 bg">1</div>
+        <div class="col-sm-1 bg">1</div>
+        <div class="col-sm-1 bg">1</div>
+        <div class="col-sm-1 bg">1</div>
+    </div>
+</div>
+<hr>
+<h3>col-md : 970px</h3>
+<div class="container">
+    <div class="row bd">
+        <div class="col-md-1 bg">1</div>
+        <div class="col-md-1 bg">1</div>
+        <div class="col-md-1 bg">1</div>
+        <div class="col-md-1 bg">1</div>
+        <div class="col-md-1 bg">1</div>
+        <div class="col-md-1 bg">1</div>
+
+        <div class="col-md-1 bg">1</div>
+        <div class="col-md-1 bg">1</div>
+        <div class="col-md-1 bg">1</div>
+        <div class="col-md-1 bg">1</div>
+        <div class="col-md-1 bg">1</div>
+        <div class="col-md-1 bg">1</div>
+    </div>
+
+</div>
+<hr>
+<h3>중첩해서 셀 배치</h3>
+<div class="container bd">
+    <div class="row"> <!-- tr태그 -->
+        <div class="col-md-6 bg">
+            <div class="row"> <!-- 열 속에 또 다른 열 포함 -->
+                <div class="col-sm-6 bg">a</div> <!-- 숫자는 열의 너비-->
+                <div class="col-sm-6 bg">b</div>
+            </div>
+        </div>
+        <div class="col-md-6 bg">1</div>
+    </div>
+</div>
+<hr>
+<h2>연습문제</h2>
+<div class="container">
+    <header class="row">
+        <div class="col bg">header</div>
+    </header>
+
+    <nav class="row">
+        <div class="col bg">nav</div>
+    </nav>
+
+    <div class="row">
+        <div class="col-sm-8 bg">
+            <div class="row">
+                <div class="col-12" style="height: 75px">section</div>
+                <div class="col-12" style="height: 75px">section</div>
+            </div>
+        </div>
+        <aside class="col-sm-4 bg" style="height: 150px">aside</aside>
+
+    </div>
+
+    <footer class="row">
+        <div class="col bg">footer</div>
+    </footer>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
+</html>
+<!--
+bootstrap grid system
+grid 란 화면을 일정크기의 격자로 나눈것을 의미
+부트스트랩에서는 이것을 토대로 웹페이지를
+구성하는 요소와 컨텐츠를 배치할 수 있음
+이 방식을 통해 데스크탑/태블릿/모바일 환경에 따라
+컨텐츠 재배치가 훨씬 수월해짐
+-->
+<!--
+container, row, col
+부트스트랩에서 레이아웃 관련 스타일은  container, row, col 을 사용함
+html 에서 표를 만드는 것과 유사하게
+table 태그는  container 클래스로, tr, th 는 row 클래스로
+td 는 col 클래스로 대응한다고 보면 됨
+즉, container 클래스로 레이아웃의 전체 공간을 정의하고
+row 와 col로 행과 열을 정의한다고 이해하면 됨됨
+->

@@ -79,6 +79,8 @@
     let dong = document.getElementById('dong');
 
     // 시도에 목록 출력
+    // 'localhost:8080/sido.jsp' 를
+    // 서버에 요청하고 넘어온 결과를 makedong 함수로 전달
     // 비동기 방식으로 데이터 가져오기
     // zipcode_2013 테이블에서 시도만 추출해서 sido 라는 select 요소에 option 요소 추가
 
@@ -119,6 +121,8 @@
     sido.addEventListener('change', getgugun);
 
     // 선택한 시도로 구군을 검색해서 비동기로 처리함
+    // 'localhost:8080/gugun.jsp?sido=서울'
+    // 서버에 요청하고 넘어온 결과를 makegu 함수로 전달
     function getgugun() {
         req = new XMLHttpRequest();
         req.onreadystatechange = function () {
@@ -136,8 +140,8 @@
 
         opt = document.createElement('option');
 
-        while(gugun.lastChild) {
-            gugun.removeChild(gugun.lastChild);
+        while(gugun.firstChild) {
+            gugun.removeChild(gugun.firstChild);
         }
 
         txt = document.createTextNode('-- 시/군/구 --');
@@ -157,20 +161,19 @@
     // 두번째 select 요소에 이벤트 핸들러 등록
     gugun.addEventListener('change',getdong);
 
+    // 선택관 시도와 구군으로 동을 검색해서 비동기로 처리함
+    // 'localhost:8080/dong.jsp?sido=서울&gugun=강남구'
+    // 서버에 요청하고 넘어온 결과를 makedong 함수로 전달
     function getdong() {
         req = new XMLHttpRequest();
         req.onreadystatechange = function () {
-            if (req.readyState == 4 && req.status == 200){
+            if (req.readyState == 4 && req.status == 200)
                 makedong(req.responseText);
-            }
-        };
+        }
 
-        let qry1 = '?sido=' + sido.value; // 검색을 위한 질의문자열 생성(시,도의 값)
-        let qry2 = ' &gugun=' + gugun.value; // 검색을 위한 질의문자열 생성(시,구의 값)
+        let qry = '?sido=' + sido.value + '&gugun=' + gugun.value;
 
-        let str = url3+qry1+qry2;
-
-        req.open('get',str,true);
+        req.open('get',url3+qry,true);
         req.send();
     }
 
@@ -190,7 +193,7 @@
         for (let col of cols) {
             if (col == '') continue;
             opt = document.createElement('option');
-            opt.value = col.trim();
+            opt.value = col.trim(); // 공백 채우기 위해 trim 사용 ?
             txt = document.createTextNode(col.trim());
             opt.appendChild(txt);
             dong.appendChild(opt);
